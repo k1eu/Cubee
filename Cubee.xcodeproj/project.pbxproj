@@ -54,6 +54,11 @@
 		117CFF5C22A8643900FDA9DA /* Cubee */ = {
 			isa = PBXGroup;
 			children = (
+				735B16AF22C3EAEE00586180 /* Options */,
+				735B16AE22C3EAD600586180 /* Account */,
+				735B16AD22C3EAC300586180 /* Main Screen */,
+				735B16AB22C3EA8E00586180 /* Cubes */,
+				735B16AA22C3EA8900586180 /* Timer */,
 				117CFF5D22A8643900FDA9DA /* AppDelegate.swift */,
 				117CFF5F22A8643900FDA9DA /* ViewController.swift */,
 				117CFF6122A8643900FDA9DA /* Main.storyboard */,
@@ -62,6 +67,41 @@
 				117CFF6922A8643A00FDA9DA /* Info.plist */,
 			);
 			path = Cubee;
+			sourceTree = "<group>";
+		};
+		735B16AA22C3EA8900586180 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		735B16AB22C3EA8E00586180 /* Cubes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cubes;
+			sourceTree = "<group>";
+		};
+		735B16AD22C3EAC300586180 /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		735B16AE22C3EAD600586180 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		735B16AF22C3EAEE00586180 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Options;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK7X5RKWU2;
 				INFOPLIST_FILE = Cubee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK7X5RKWU2;
 				INFOPLIST_FILE = Cubee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
