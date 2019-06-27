@@ -12,6 +12,7 @@
 		117CFF6322A8643900FDA9DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117CFF6122A8643900FDA9DA /* Main.storyboard */; };
 		117CFF6522A8643A00FDA9DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117CFF6422A8643A00FDA9DA /* Assets.xcassets */; };
 		117CFF6822A8643A00FDA9DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117CFF6622A8643A00FDA9DA /* LaunchScreen.storyboard */; };
+		730BACCA22C4AF250082FC85 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BACC922C4AF250082FC85 /* NavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		117CFF6422A8643A00FDA9DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		117CFF6722A8643A00FDA9DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		117CFF6922A8643A00FDA9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		730BACC922C4AF250082FC85 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +56,13 @@
 		117CFF5C22A8643900FDA9DA /* Cubee */ = {
 			isa = PBXGroup;
 			children = (
+				730BACC822C4AE870082FC85 /* Views */,
 				735B16AF22C3EAEE00586180 /* Options */,
 				735B16AE22C3EAD600586180 /* Account */,
 				735B16AD22C3EAC300586180 /* Main Screen */,
 				735B16AB22C3EA8E00586180 /* Cubes */,
 				735B16AA22C3EA8900586180 /* Timer */,
+				730BACCB22C4AF890082FC85 /* Sorting Algorithm */,
 				117CFF5D22A8643900FDA9DA /* AppDelegate.swift */,
 				117CFF5F22A8643900FDA9DA /* ViewController.swift */,
 				117CFF6122A8643900FDA9DA /* Main.storyboard */,
@@ -67,6 +71,21 @@
 				117CFF6922A8643A00FDA9DA /* Info.plist */,
 			);
 			path = Cubee;
+			sourceTree = "<group>";
+		};
+		730BACC822C4AE870082FC85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				730BACC922C4AF250082FC85 /* NavigationViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		730BACCB22C4AF890082FC85 /* Sorting Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Sorting Algorithm";
 			sourceTree = "<group>";
 		};
 		735B16AA22C3EA8900586180 /* Timer */ = {
@@ -175,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730BACCA22C4AF250082FC85 /* NavigationViewController.swift in Sources */,
 				117CFF6022A8643900FDA9DA /* ViewController.swift in Sources */,
 				117CFF5E22A8643900FDA9DA /* AppDelegate.swift in Sources */,
 			);
@@ -330,7 +350,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kieu.Cubee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bbce.Cubee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -349,7 +369,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kieu.Cubee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bbce.Cubee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
