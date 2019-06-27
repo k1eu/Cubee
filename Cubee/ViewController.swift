@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         if stopwatch.isRunning {
         let minutes = Int(stopwatch.elapsedTime / 60)
         let seconds = Int(stopwatch.elapsedTime.truncatingRemainder(dividingBy: 60))
-        let tenthsOfSecond = Int((stopwatch.elapsedTime * 10).truncatingRemainder(dividingBy: 10))
+        let tenthsOfSecond = Int((stopwatch.elapsedTime * 100).truncatingRemainder(dividingBy: 100))
 
         timerLabel.text = String(format: "%02d:%02d.%02d",
                minutes, seconds, tenthsOfSecond)
