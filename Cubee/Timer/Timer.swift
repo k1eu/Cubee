@@ -8,8 +8,8 @@
 
 import UIKit
 
-class Timer {
-    var isCounting : Bool = false
+class Stopwatch {
+    var isRunning : Bool = false
     
     private var startTime: Date?
     
@@ -21,16 +21,13 @@ class Timer {
         }
     }
     
-    var isRunning: Bool {
-        isCounting = !isCounting
-        return isCounting
-    }
-    
     func start() {
         startTime = Date()
+        isRunning = true
     }
     
     func stop() {
         startTime = nil
+        isRunning = false
     }
 }
