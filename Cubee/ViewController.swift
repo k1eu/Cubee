@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     //Actions
     @IBAction func startButtonAction(_ sender:
         UIButton) {
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: {
             timer in
             self.updateLabel(timer)
             }
