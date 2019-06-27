@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mog-Nt-JaP">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mog-Nt-JaP">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,6 +57,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgb-59-6oX">
                                 <rect key="frame" x="191" y="500" width="32" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -63,16 +66,31 @@
                                     <action selector="stopButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0gK-QL-goo"/>
                                 </connections>
                             </button>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIU-VH-ECh">
+                                <rect key="frame" x="20" y="626" width="374" height="236"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="236" id="2u4-Rc-UOv"/>
+                                    <constraint firstAttribute="width" constant="374" id="nBW-pF-BuB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="L3B-8H-KQe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="AK2-1N-IQB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L3B-8H-KQe" secondAttribute="trailing" constant="25" id="Olv-lE-Pio"/>
+                            <constraint firstItem="QIU-VH-ECh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="kAk-Su-kJP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QIU-VH-ECh" secondAttribute="trailing" constant="20" id="y5W-wO-3NF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="fBD-fc-SEQ"/>
                     <connections>
+                        <outlet property="sortingAlgorithmLabel" destination="QIU-VH-ECh" id="ZKU-fe-SSo"/>
                         <outlet property="startButtonOutlet" destination="1k7-X0-0Od" id="6HZ-jo-0yy"/>
                         <outlet property="stopButtonOutlet" destination="Sgb-59-6oX" id="3AE-81-NZH"/>
                         <outlet property="timerLabel" destination="Fab-1n-064" id="lqY-UF-byt"/>
@@ -89,7 +107,7 @@
                     <view key="view" contentMode="scaleToFill" id="yfn-xD-RDN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="LIL-vZ-Z6L"/>
                     </view>
                 </viewController>
