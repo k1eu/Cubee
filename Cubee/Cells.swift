@@ -89,11 +89,12 @@ class MenuCell : BaseCell {
         cellBackground.removeFromSuperview()
     }
     
+    
     func setStandardConstraints() {
-        avatarView.heightAnchor.constraint(equalToConstant: 85).isActive = true
-        avatarView.widthAnchor.constraint(equalToConstant: 85).isActive = true
+        avatarView.heightAnchor.constraint(equalTo: avatarView.widthAnchor).isActive = true
+        avatarView.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
+        avatarView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -65).isActive = true
         avatarView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        avatarView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant:-20).isActive = true
         
         labelName.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         labelName.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: 15).isActive = true
@@ -111,9 +112,9 @@ class MenuCell : BaseCell {
         labelName.isHidden = true
         avatarView.isHidden = false
         avatarView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        avatarView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        avatarView.heightAnchor.constraint(equalToConstant: 85).isActive = true
-        avatarView.widthAnchor.constraint(equalToConstant: 85).isActive = true
+        avatarView.heightAnchor.constraint(equalTo:avatarView.widthAnchor).isActive = true
+        avatarView.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
+        avatarView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25).isActive = true
     }
     func setOnlyLabelConstraints() {
         labelName.isHidden = false
