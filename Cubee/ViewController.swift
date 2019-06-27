@@ -13,12 +13,17 @@ class ViewController: UIViewController {
     //Outlets
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startButtonOutlet: UIButton!
+    @IBOutlet weak var sortingAlgorithmLabel: UILabel!
     
     // Variables and Constants
+    let sortingInstance = Sorting()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let algorithm = sortingInstance.threeByThree()
+        sortingAlgorithmLabel.text = algorithm
     }
 
     //Actions
