@@ -37,7 +37,7 @@
                                 <rect key="frame" x="349" y="25" width="40" height="30"/>
                                 <state key="normal" title="Konto"/>
                                 <connections>
-                                    <segue destination="YHY-iF-Lve" kind="show" id="vqV-op-wTf"/>
+                                    <segue destination="YHY-iF-Lve" kind="show" identifier="account" id="vqV-op-wTf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k7-X0-0Od">
@@ -81,7 +81,7 @@
                                 <rect key="frame" x="349" y="63" width="41" height="30"/>
                                 <state key="normal" title="Opcje"/>
                                 <connections>
-                                    <segue destination="WZR-0K-O1Z" kind="show" id="Rv7-ms-V62"/>
+                                    <segue destination="WZR-0K-O1Z" kind="show" identifier="options" id="Rv7-ms-V62"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -128,7 +128,7 @@
         <!--Opcje-->
         <scene sceneID="UyX-au-UCe">
             <objects>
-                <viewController title="Opcje" id="WZR-0K-O1Z" customClass="Options" customModule="Cubee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="options" title="Opcje" id="WZR-0K-O1Z" customClass="Options" customModule="Cubee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xBg-iJ-1OF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,7 +232,7 @@
         <!--My Account-->
         <scene sceneID="abI-jS-rBN">
             <objects>
-                <viewController title="My Account" id="YHY-iF-Lve" customClass="AccountView" customModule="Cubee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="account" title="My Account" id="YHY-iF-Lve" customClass="AccountView" customModule="Cubee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yfn-xD-RDN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,7 +255,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Results"/>
                                 <connections>
-                                    <segue destination="0QB-g1-2x4" kind="show" id="Q1t-CM-gyi"/>
+                                    <segue destination="0QB-g1-2x4" kind="show" identifier="results" id="Q1t-CM-gyi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -278,7 +278,7 @@
         <!--My Results-->
         <scene sceneID="Axq-44-D0a">
             <objects>
-                <viewController title="My Results" id="0QB-g1-2x4" customClass="TimesView" customModule="Cubee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="results" title="My Results" id="0QB-g1-2x4" customClass="TimesView" customModule="Cubee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pLF-B8-0aN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

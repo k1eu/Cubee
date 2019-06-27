@@ -14,21 +14,20 @@ class ViewController: UIViewController {
     //Outlets
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startButtonOutlet: UIButton!
-
+    @IBOutlet weak var sortingAlgorithmLabel: UILabel!
     @IBOutlet weak var stopButtonOutlet: UIButton!
     
     // Variables and Constants
     let stopwatch = Stopwatch()
-
-    @IBOutlet weak var sortingAlgorithmLabel: UILabel!
-    
-    // Variables and Constants
     let sortingInstance = Sorting()
+    lazy var menu : Menu = {
+        let leftSideMenu = Menu()
+        leftSideMenu.mainController = self
+        return leftSideMenu
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         let algorithm = sortingInstance.threeByThree()
         sortingAlgorithmLabel.text = algorithm
     }
@@ -49,7 +48,19 @@ class ViewController: UIViewController {
         timerLabel.text = result
     }
     @IBAction func openMenu(_ sender: UIBarButtonItem) {
-        darkenBackground()
+        
+        if !menu.isMenuOpen {
+            menu.darkenBackground(view:view)
+            menu.showMenu(view:view)
+        }
+        else {
+            let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
+            UIView.animate(withDuration: 0.5, animations: {
+                self.menu.blackView.alpha = 0
+                self.menu.menuCollectionView.frame = startingMenuPosition
+            })
+            menu.isMenuOpen = false
+        }
     }
     
     //functions
@@ -66,20 +77,16 @@ class ViewController: UIViewController {
            timer.invalidate()
         }
     }
-    func darkenBackground () {
-        if let window = UIApplication.shared.keyWindow {
-        let blackView = UIView()
-        blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-            
-            //blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissMenu)))
-    
-        window.addSubview(blackView)
-        blackView.frame = window.frame
-        blackView.alpha = 0
-        
+
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
+        if let touch = touches.first, touch.view == menu.blackView {
             UIView.animate(withDuration: 0.5, animations: {
-                blackView.alpha = 1
+                self.menu.blackView.alpha = 0
+                self.menu.menuCollectionView.frame = startingMenuPosition
             })
+            menu.isMenuOpen = false
         }
     }
 }
