@@ -13,6 +13,8 @@
 		117CFF6522A8643A00FDA9DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117CFF6422A8643A00FDA9DA /* Assets.xcassets */; };
 		117CFF6822A8643A00FDA9DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117CFF6622A8643A00FDA9DA /* LaunchScreen.storyboard */; };
 		730BACCA22C4AF250082FC85 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BACC922C4AF250082FC85 /* NavigationViewController.swift */; };
+		730BACCD22C4B1900082FC85 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BACCC22C4B1900082FC85 /* Timer.swift */; };
+		730BACCF22C4B5810082FC85 /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BACCE22C4B5810082FC85 /* Sorting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		117CFF6722A8643A00FDA9DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		117CFF6922A8643A00FDA9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		730BACC922C4AF250082FC85 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		730BACCC22C4B1900082FC85 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		730BACCE22C4B5810082FC85 /* Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		730BACCB22C4AF890082FC85 /* Sorting Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				730BACCE22C4B5810082FC85 /* Sorting.swift */,
 			);
 			path = "Sorting Algorithm";
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 		735B16AA22C3EA8900586180 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				730BACCC22C4B1900082FC85 /* Timer.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -197,6 +203,8 @@
 				730BACCA22C4AF250082FC85 /* NavigationViewController.swift in Sources */,
 				117CFF6022A8643900FDA9DA /* ViewController.swift in Sources */,
 				117CFF5E22A8643900FDA9DA /* AppDelegate.swift in Sources */,
+				730BACCD22C4B1900082FC85 /* Timer.swift in Sources */,
+				730BACCF22C4B5810082FC85 /* Sorting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
