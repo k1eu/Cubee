@@ -47,8 +47,9 @@ class ViewController: UIViewController {
         let result = timerLabel.text
         stopwatch.stop()
         timerLabel.text = result
-        
-        
+    }
+    @IBAction func openMenu(_ sender: UIBarButtonItem) {
+        darkenBackground()
     }
     
     //functions
@@ -63,6 +64,22 @@ class ViewController: UIViewController {
         }
         else {
            timer.invalidate()
+        }
+    }
+    func darkenBackground () {
+        if let window = UIApplication.shared.keyWindow {
+        let blackView = UIView()
+        blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+            
+            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissMenu)))
+    
+        window.addSubview(blackView)
+        blackView.frame = window.frame
+        blackView.alpha = 0
+        
+            UIView.animate(withDuration: 0.5, animations: {
+                blackView.alpha = 1
+            })
         }
     }
 }
