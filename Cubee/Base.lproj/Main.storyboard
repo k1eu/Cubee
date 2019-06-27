@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <scenes>
         <!--Navigation View Controller-->
@@ -33,14 +34,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3B-8H-KQe">
-                                <rect key="frame" x="349" y="113" width="40" height="30"/>
+                                <rect key="frame" x="349" y="69" width="40" height="30"/>
                                 <state key="normal" title="Konto"/>
                                 <connections>
                                     <segue destination="YHY-iF-Lve" kind="show" id="vqV-op-wTf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k7-X0-0Od">
-                                <rect key="frame" x="20" y="452.5" width="374" height="60"/>
+                                <rect key="frame" x="20" y="392.5" width="374" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="tGf-Qe-7NM"/>
                                 </constraints>
@@ -51,16 +52,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fab-1n-064">
-                                <rect key="frame" x="87.5" y="373.5" width="239" height="69"/>
+                                <rect key="frame" x="87.5" y="313.5" width="239" height="69"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="57"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIU-VH-ECh">
-                                <rect key="frame" x="20" y="626" width="374" height="236"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="236" id="2u4-Rc-UOv"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="788.5" width="374" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -73,25 +71,34 @@
                                     <action selector="stopButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0gK-QL-goo"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorting algorithm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5i-4w-oY4">
+                                <rect key="frame" x="20" y="747.5" width="140" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Fab-1n-064" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-40" id="8Ky-gR-56s"/>
+                            <constraint firstItem="Fab-1n-064" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="8Ky-gR-56s"/>
                             <constraint firstItem="L3B-8H-KQe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="AK2-1N-IQB"/>
                             <constraint firstItem="1k7-X0-0Od" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cay-7L-2JW"/>
                             <constraint firstItem="Fab-1n-064" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LzM-RT-VXd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L3B-8H-KQe" secondAttribute="trailing" constant="25" id="Olv-lE-Pio"/>
                             <constraint firstItem="1k7-X0-0Od" firstAttribute="top" secondItem="Fab-1n-064" secondAttribute="bottom" constant="10" id="Pzt-3P-Drr"/>
+                            <constraint firstItem="QIU-VH-ECh" firstAttribute="top" secondItem="c5i-4w-oY4" secondAttribute="bottom" constant="20" id="Rjs-ii-hGa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QIU-VH-ECh" secondAttribute="bottom" constant="40" id="TV6-sd-m5t"/>
                             <constraint firstItem="1k7-X0-0Od" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ucs-Yo-x8s"/>
                             <constraint firstItem="QIU-VH-ECh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WyR-54-eHd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1k7-X0-0Od" secondAttribute="trailing" constant="20" id="auh-8g-sES"/>
-                            <constraint firstItem="QIU-VH-ECh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="kAk-Su-kJP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QIU-VH-ECh" secondAttribute="trailing" constant="20" id="oUm-8w-jRL"/>
+                            <constraint firstItem="c5i-4w-oY4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wE3-yZ-LD6"/>
                             <constraint firstItem="QIU-VH-ECh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xwA-Vx-YGP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="fBD-fc-SEQ"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="sortingAlgorithmLabel" destination="QIU-VH-ECh" id="ZKU-fe-SSo"/>
                         <outlet property="startButtonOutlet" destination="1k7-X0-0Od" id="6HZ-jo-0yy"/>
@@ -112,14 +119,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fHS-XN-xi7">
-                                <rect key="frame" x="107" y="238" width="200" height="200"/>
+                                <rect key="frame" x="107" y="194" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="81Q-P4-kB9"/>
                                     <constraint firstAttribute="width" constant="200" id="fLs-7q-XU7"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLr-l0-Kkd">
-                                <rect key="frame" x="139.5" y="148" width="135" height="37"/>
+                                <rect key="frame" x="139.5" y="104" width="135" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
