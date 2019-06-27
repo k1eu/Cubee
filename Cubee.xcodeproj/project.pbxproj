@@ -15,6 +15,9 @@
 		730BACCA22C4AF250082FC85 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BACC922C4AF250082FC85 /* NavigationViewController.swift */; };
 		730BACCD22C4B1900082FC85 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BACCC22C4B1900082FC85 /* Timer.swift */; };
 		730BACCF22C4B5810082FC85 /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BACCE22C4B5810082FC85 /* Sorting.swift */; };
+		7325177E22C4F16E00B5C5FC /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325177D22C4F16E00B5C5FC /* Options.swift */; };
+		7325178022C4F18900B5C5FC /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325177F22C4F18900B5C5FC /* AccountView.swift */; };
+		7325178222C4F1B900B5C5FC /* TimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325178122C4F1B900B5C5FC /* TimesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		730BACC922C4AF250082FC85 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		730BACCC22C4B1900082FC85 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		730BACCE22C4B5810082FC85 /* Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
+		7325177D22C4F16E00B5C5FC /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Options.swift; path = Cubee/Options.swift; sourceTree = SOURCE_ROOT; };
+		7325177F22C4F18900B5C5FC /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountView.swift; path = Cubee/AccountView.swift; sourceTree = SOURCE_ROOT; };
+		7325178122C4F1B900B5C5FC /* TimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimesView.swift; path = Cubee/TimesView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,8 @@
 		735B16AE22C3EAD600586180 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				7325177F22C4F18900B5C5FC /* AccountView.swift */,
+				7325178122C4F1B900B5C5FC /* TimesView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 		735B16AF22C3EAEE00586180 /* Options */ = {
 			isa = PBXGroup;
 			children = (
+				7325177D22C4F16E00B5C5FC /* Options.swift */,
 			);
 			path = Options;
 			sourceTree = "<group>";
@@ -204,7 +213,10 @@
 				117CFF6022A8643900FDA9DA /* ViewController.swift in Sources */,
 				117CFF5E22A8643900FDA9DA /* AppDelegate.swift in Sources */,
 				730BACCD22C4B1900082FC85 /* Timer.swift in Sources */,
+				7325178022C4F18900B5C5FC /* AccountView.swift in Sources */,
+				7325177E22C4F16E00B5C5FC /* Options.swift in Sources */,
 				730BACCF22C4B5810082FC85 /* Sorting.swift in Sources */,
+				7325178222C4F1B900B5C5FC /* TimesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

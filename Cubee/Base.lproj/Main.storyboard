@@ -122,7 +122,7 @@
         <!--Opcje-->
         <scene sceneID="UyX-au-UCe">
             <objects>
-                <viewController title="Opcje" id="WZR-0K-O1Z" sceneMemberID="viewController">
+                <viewController title="Opcje" id="WZR-0K-O1Z" customClass="Options" customModule="Cubee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xBg-iJ-1OF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="251" y="389"/>
         </scene>
-        <!--View Controller-->
+        <!--My Account-->
         <scene sceneID="abI-jS-rBN">
             <objects>
-                <viewController id="YHY-iF-Lve" sceneMemberID="viewController">
+                <viewController title="My Account" id="YHY-iF-Lve" customClass="AccountView" customModule="Cubee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yfn-xD-RDN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,10 +180,10 @@
             </objects>
             <point key="canvasLocation" x="252" y="-295"/>
         </scene>
-        <!--View Controller-->
+        <!--My Results-->
         <scene sceneID="Axq-44-D0a">
             <objects>
-                <viewController id="0QB-g1-2x4" sceneMemberID="viewController">
+                <viewController title="My Results" id="0QB-g1-2x4" customClass="TimesView" customModule="Cubee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pLF-B8-0aN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
