@@ -26,6 +26,10 @@ class Options : UIViewController {
         hideKeyboardWhenTappedAround()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        updateUI()
+    }
+    
     //Actions
     @IBAction func nickChanged(_ sender: Any) {
         let newNick = nickTextfield.text

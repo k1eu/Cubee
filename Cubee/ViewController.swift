@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         let blackView = UIView()
         blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
             
-            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissMenu)))
+            //blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissMenu)))
     
         window.addSubview(blackView)
         blackView.frame = window.frame
