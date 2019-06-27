@@ -78,6 +78,7 @@ class ViewController: UIViewController {
         }
     }
 
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
         if let touch = touches.first, touch.view == menu.blackView {
@@ -87,10 +88,6 @@ class ViewController: UIViewController {
             })
             menu.isMenuOpen = false
         }
-       
-        
-        
     }
-    
 }
 
