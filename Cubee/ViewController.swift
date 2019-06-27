@@ -41,6 +41,7 @@ class ViewController: UIViewController {
             self.updateLabel(timer)
             }
         )
+        stopwatch.start()
     }
     @IBAction func stopButtonAction(_ sender: UIButton) {
         let result = timerLabel.text
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
     }
     
     //functions
-    @objc func updateLabel(_ timer : Timer) {
+    func updateLabel(_ timer : Timer) {
         if stopwatch.isRunning {
         let minutes = Int(stopwatch.elapsedTime / 60)
         let seconds = Int(stopwatch.elapsedTime.truncatingRemainder(dividingBy: 60))
