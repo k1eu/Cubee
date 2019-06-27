@@ -12,6 +12,7 @@
 		117CFF6322A8643900FDA9DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117CFF6122A8643900FDA9DA /* Main.storyboard */; };
 		117CFF6522A8643A00FDA9DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117CFF6422A8643A00FDA9DA /* Assets.xcassets */; };
 		117CFF6822A8643A00FDA9DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117CFF6622A8643A00FDA9DA /* LaunchScreen.storyboard */; };
+		139A2D4622C5044F00337E52 /* ViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139A2D4522C5044F00337E52 /* ViewControllerExtention.swift */; };
 		730BACCA22C4AF250082FC85 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BACC922C4AF250082FC85 /* NavigationViewController.swift */; };
 		730BACCD22C4B1900082FC85 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BACCC22C4B1900082FC85 /* Timer.swift */; };
 		730BACCF22C4B5810082FC85 /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BACCE22C4B5810082FC85 /* Sorting.swift */; };
@@ -28,6 +29,7 @@
 		117CFF6422A8643A00FDA9DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		117CFF6722A8643A00FDA9DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		117CFF6922A8643A00FDA9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		139A2D4522C5044F00337E52 /* ViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtention.swift; sourceTree = "<group>"; };
 		730BACC922C4AF250082FC85 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		730BACCC22C4B1900082FC85 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		730BACCE22C4B5810082FC85 /* Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				730BACC922C4AF250082FC85 /* NavigationViewController.swift */,
+				139A2D4522C5044F00337E52 /* ViewControllerExtention.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				117CFF5E22A8643900FDA9DA /* AppDelegate.swift in Sources */,
 				730BACCD22C4B1900082FC85 /* Timer.swift in Sources */,
 				7325178022C4F18900B5C5FC /* AccountView.swift in Sources */,
+				139A2D4622C5044F00337E52 /* ViewControllerExtention.swift in Sources */,
 				7325177E22C4F16E00B5C5FC /* Options.swift in Sources */,
 				730BACCF22C4B5810082FC85 /* Sorting.swift in Sources */,
 				7325178222C4F1B900B5C5FC /* TimesView.swift in Sources */,
