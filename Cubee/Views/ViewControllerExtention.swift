@@ -132,4 +132,22 @@ extension UIViewController {
         return results
     }
     
+    func makeSortingAlgorithm() -> String {
+        var algorithm = ""
+        let cubeType = UserDefaults.standard.string(forKey: "cubeType")
+        
+        switch cubeType! {
+        case "3x3":
+            algorithm = Sorting().threeByThree()
+        case "2x2":
+            algorithm = Sorting().twoBytwo()
+        case "Piraminx":
+            algorithm = Sorting().piraminx()
+        default:
+            print("Sth went wrong")
+        }
+        
+        return algorithm
+    }
+    
 }
