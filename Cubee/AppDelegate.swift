@@ -26,6 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.set("5", forKey: "count")
         }
         
+        let cubeType = defaults.string(forKey: "cubeType")
+        if cubeType == nil || cubeType == "" {
+            defaults.set("3x3", forKey: "cubeType")
+        }
+        
         return true
     }
     

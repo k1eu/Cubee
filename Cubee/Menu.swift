@@ -13,6 +13,7 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
     let cellId = "cellId"
     let menuSettings = MenuOptions()
     var mainController : ViewController?
+    let defaults = UserDefaults.standard
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let settings = menuSettings.setSettingsTabs()
@@ -37,10 +38,16 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
         case "account":
             initializeNewController(withIdentifier: "account")
         case "cube1":
+            defaults.set("3x3", forKey: "cubeType")
+            mainController?.sortingAlgorithmLabel.text = mainController?.makeSortingAlgorithm()
             print("XD1")
         case "cube2":
+            defaults.set("2x2", forKey: "cubeType")
+            mainController?.sortingAlgorithmLabel.text = mainController?.makeSortingAlgorithm()
             print("XD2")
         case "cube3":
+            defaults.set("Piraminx", forKey: "cubeType")
+            mainController?.sortingAlgorithmLabel.text = mainController?.makeSortingAlgorithm()
             print("XD3")
         case "options":
             initializeNewController(withIdentifier: "options")
