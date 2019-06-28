@@ -20,11 +20,19 @@ class AccountView : UIViewController {
         super.viewWillAppear(animated)
         updateUI()
         setNickname()
+        setAvatar()
     }
-    
+    /Users/k1eu/Programowanie/Xcode Saves/Cubee/Cubee/AccountView.swift
     func setNickname() {
         let actualNick = defaults.string(forKey: "nick")
         
-        nickLabel.text = actualNick
+        nickLabel.text = actualNick ?? "Nickname"
+        
+        
+    }
+    func setAvatar() {
+        let actualImage = defaults.string(forKey: "img")
+        
+        accountImage.image = UIImage(named: actualImage ?? "account")
     }
 }

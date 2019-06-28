@@ -9,10 +9,16 @@
 import UIKit
 
 class MenuOptions {
-    var nickname = UserDefaults.standard.string(forKey: "nick")
+    var nickname : String = "Nickname"
+    
+    
+    
     func setSettingsTabs() -> [SettingsCell] {
+        if let setNick = UserDefaults.standard.string(forKey: "nick"), setNick != "" {
+            nickname = setNick
+        }
         let settings : [SettingsCell] = [
-            SettingsCell(labelText: nickname ?? "Nickname", imgName: "account"),
+            SettingsCell(labelText: nickname, imgName: "account"),
             SettingsCell(labelText: "Kostka1", imgName: nil),
             SettingsCell(labelText: nil, imgName: "account"),
             SettingsCell(labelText: nil, imgName: "options")
