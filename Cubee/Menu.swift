@@ -40,15 +40,15 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
         case "cube1":
             defaults.set("3x3", forKey: "cubeType")
             mainController?.sortingAlgorithmLabel.text = mainController?.makeSortingAlgorithm()
-            print("XD1")
+            initializeCubeChange()
         case "cube2":
             defaults.set("2x2", forKey: "cubeType")
             mainController?.sortingAlgorithmLabel.text = mainController?.makeSortingAlgorithm()
-            print("XD2")
+            initializeCubeChange()
         case "cube3":
             defaults.set("Piraminx", forKey: "cubeType")
             mainController?.sortingAlgorithmLabel.text = mainController?.makeSortingAlgorithm()
-            print("XD3")
+            initializeCubeChange()
         case "options":
             initializeNewController(withIdentifier: "options")
         default:
@@ -99,6 +99,20 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
             }, completion: {
                 (idkwhatsthat : Bool ) in
                 self.mainController?.performSegue(withIdentifier: withIdentifier, sender: self.mainController.self)
+            })
+            isMenuOpen = false
+        }
+    }
+    func initializeCubeChange() {
+        if let view = mainController?.view {
+            let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.blackView.alpha = 0
+                self.menuCollectionView.frame = startingMenuPosition
+            }, completion: {
+                (idkwhatsthat : Bool ) in
+                print("cube has been changed")
             })
             isMenuOpen = false
         }

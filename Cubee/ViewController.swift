@@ -108,15 +108,29 @@ class ViewController: UIViewController {
     
     func saveTime(time: String) {
         let cubeType = defaults.string(forKey: "cubeType")
+        if let twoByTwo = defaults.stringArray(forKey: "times2x2") {
+            timesCouter2x2 = twoByTwo.count
+            savedTimes2x2 = twoByTwo
+        }
+        if let threeByThree = defaults.stringArray(forKey: "times3x3") {
+            timesCouter3x3 = threeByThree.count
+            savedTimes3x3 = threeByThree
+        }
+        if let piraminx = defaults.stringArray(forKey: "timesPiraminx") {
+            timesCouterPiraminx = piraminx.count
+            savedTimesPiraminx = piraminx
+        }
         
         switch cubeType! {
         case "3x3":
             if timesCouter3x3 >= 0 && timesCouter3x3 < 20  {
-                savedTimes3x3 += [time]
-                timesCouter3x3 += 1
+                savedTimes3x3.insert(time, at: 0)
+                print("added new time: \(time)")
             } else if timesCouter3x3 >= 20 {
-                savedTimes3x3.removeFirst()
-                savedTimes3x3 += [time]
+                savedTimes3x3.removeLast()
+                savedTimes3x3.insert(time, at: 0)
+                print(savedTimes3x3)
+                print("deletedlast added new")
             } else {
                 print("Error: couldnt save time")
             }
@@ -124,11 +138,13 @@ class ViewController: UIViewController {
             defaults.set(savedTimes3x3, forKey: "times3x3")
         case "2x2":
             if timesCouter2x2 >= 0 && timesCouter2x2 < 20  {
-                savedTimes2x2 += [time]
-                timesCouter2x2 += 1
+                savedTimes2x2.insert(time, at: 0)
+                print("added new time: \(time)")
             } else if timesCouter2x2 >= 20 {
                 savedTimes2x2.removeFirst()
-                savedTimes2x2 += [time]
+                savedTimes2x2.insert(time, at: 0)
+                print(savedTimes2x2)
+                print("deletedlast added new")
             } else {
                 print("Error: couldnt save time")
             }
@@ -136,11 +152,13 @@ class ViewController: UIViewController {
             defaults.set(savedTimes2x2, forKey: "times2x2")
         case "Piraminx":
             if timesCouterPiraminx >= 0 && timesCouterPiraminx < 20  {
-                savedTimesPiraminx += [time]
-                timesCouterPiraminx += 1
+                savedTimesPiraminx.insert(time, at: 0)
+                print("added new time: \(time)")
             } else if timesCouterPiraminx >= 20 {
                 savedTimesPiraminx.removeFirst()
-                savedTimesPiraminx += [time]
+                savedTimesPiraminx.insert(time, at: 0)
+                print(savedTimesPiraminx)
+                print("deletedlast added new")
             } else {
                 print("Error: couldnt save time")
             }
