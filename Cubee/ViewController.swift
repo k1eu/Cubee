@@ -25,6 +25,9 @@ class ViewController: UIViewController {
         leftSideMenu.mainController = self
         return leftSideMenu
     }()
+    var savedTimes = [String]()
+    var timesCouter = 0
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +53,9 @@ class ViewController: UIViewController {
         let result = timerLabel.text
         stopwatch.stop()
         timerLabel.text = result
+        
+        saveTime(time: result!)
+        
         sortingAlgorithmLabel.text = sortingInstance.threeByThree()
     }
     @IBAction func openMenu(_ sender: UIBarButtonItem) {
@@ -93,6 +99,22 @@ class ViewController: UIViewController {
             })
             menu.isMenuOpen = false
         }
+    }
+    
+    func saveTime(time: String) {
+        if timesCouter >= 0 && timesCouter < 20  {
+            savedTimes += [time]
+            timesCouter += 1
+        } else if timesCouter >= 20 {
+            savedTimes.removeFirst()
+            savedTimes += [time]
+        } else {
+            print("Error: couldnt save time")
+        }
+        
+        print(savedTimes, " counter: ", timesCouter)
+        
+        defaults.set(savedTimes, forKey: "times")
     }
 }
 

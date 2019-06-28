@@ -319,6 +319,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GqA-dv-TTr"/>
                     </view>
+                    <connections>
+                        <outlet property="avgLabel" destination="QIA-0o-uB5" id="FXW-OY-h3B"/>
+                        <outlet property="bestTimeLabel" destination="y5e-ej-YYF" id="bC9-vH-OgB"/>
+                        <outlet property="lastTimeLabel" destination="XHZ-gH-JtK" id="Wv6-Lr-w5r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cdm-4E-3G4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
