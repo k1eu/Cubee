@@ -76,6 +76,22 @@ extension UIViewController {
             self.view.backgroundColor = colors.backgroundDark
         }
     }
+    func updateNavUI() {
+        //colors used
+        let colors = Colors()
+        //mode
+        let chosenMode = UserDefaults.standard.string(forKey: "theme")
+        guard let nav = navigationController else {return}
+        
+        if chosenMode == "light" {
+            nav.navigationBar.barTintColor = colors.navbarLight
+            nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        }
+        else if chosenMode == "dark" {
+            nav.navigationBar.barTintColor = colors.navbarDark
+            nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        }
+    }
     
     func getLabelsInView(view: UIView) -> [UILabel] {
         var results = [UILabel]()
@@ -115,24 +131,5 @@ extension UIViewController {
         }
         return results
     }
-}
-
-
-extension UIViewController {
-    func updateNavUI() {
-        //colors used
-        let colors = Colors()
-        //mode
-        let chosenMode = UserDefaults.standard.string(forKey: "theme")
-        guard let nav = navigationController else {return}
-        
-        if chosenMode == "light" {
-            nav.navigationBar.barTintColor = colors.navbarLight
-            nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        }
-        else if chosenMode == "dark" {
-            nav.navigationBar.barTintColor = colors.navbarDark
-            nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-    }
-}
+    
 }
