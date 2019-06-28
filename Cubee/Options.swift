@@ -31,6 +31,7 @@ class Options : UIViewController {
         super.viewWillAppear(animated)
         updateUI()
         setThemeSegmented()
+        setAvgSegmented()
     }
     
     //Actions
@@ -41,9 +42,23 @@ class Options : UIViewController {
     
     @IBAction func avgControllValueChanged(_ sender: UISegmentedControl) {
         let selectedSegment = sender.selectedSegmentIndex
-        let newOption = sender.titleForSegment(at: selectedSegment)
+        let selectedOption = sender.titleForSegment(at: selectedSegment)
+        var newOption = ""
         
-        defaults.set(newOption, forKey: "avg")
+        switch selectedOption {
+        case "5 results":
+            newOption = "5"
+        case "10 results":
+            newOption = "10"
+        case "15 results":
+            newOption = "15"
+        case "20 results":
+            newOption = "20"
+        default:
+            print("Error: You dont have other choices")
+        }
+        
+        defaults.set(newOption, forKey: "count")
     }
     
     @IBAction func themeControllValueChanged(_ sender: UISegmentedControl) {
@@ -65,6 +80,8 @@ class Options : UIViewController {
     }
     
     @IBAction func submitAction(_ sender: UIButton) {
+        let newNick = nickTextfield.text
+        defaults.set(newNick, forKey: "nick")
     }
     
     //Functions
@@ -74,6 +91,22 @@ class Options : UIViewController {
             themeSegmentedControll.selectedSegmentIndex = 0
         } else {
             themeSegmentedControll.selectedSegmentIndex = 1
+        }
+    }
+    
+    func setAvgSegmented() {
+        let savedData = defaults.string(forKey: "count")
+        switch savedData {
+        case "5":
+            avgSegmentedControll.selectedSegmentIndex = 0
+        case "10":
+            avgSegmentedControll.selectedSegmentIndex = 1
+        case "15":
+            avgSegmentedControll.selectedSegmentIndex = 2
+        case "20":
+            avgSegmentedControll.selectedSegmentIndex = 3
+        default:
+            print("Error: You dont have other choices")
         }
     }
 }
