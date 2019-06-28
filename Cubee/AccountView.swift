@@ -20,6 +20,7 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
+        updateBackButton()
         setNickname()
         setAvatar()
         setTableView()

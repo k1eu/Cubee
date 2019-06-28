@@ -20,6 +20,35 @@ extension UIViewController {
         view.endEditing(true)
     }
     
+    func updateBarItem(sender:UIBarButtonItem){
+        //mode
+        let chosenMode = UserDefaults.standard.string(forKey: "theme")
+            if chosenMode == "light"{
+                sender.tintColor = .black
+            }
+            else if chosenMode == "dark" {
+                sender.tintColor = .white
+            }
+            else {
+                print("houston we've got a problem")
+            }
+        
+    }
+    func updateBackButton() {
+        
+        let chosenMode = UserDefaults.standard.string(forKey: "theme")
+        if chosenMode == "light"{
+            self.navigationController?.navigationBar.tintColor = .black
+        }
+        else if chosenMode == "dark" {
+            self.navigationController?.navigationBar.tintColor = .white
+        }
+        else {
+            print("houston we've got a problem")
+        }
+    }
+    
+    
     func updateUI() {
         //colors used
         let colors = Colors()
@@ -45,11 +74,11 @@ extension UIViewController {
         for button in buttons {
             if chosenMode == "light" {
                 button.backgroundColor = .none
-                button.setTitleColor(colors.ourBlue, for: .normal)
+                button.setTitleColor(.black, for: .normal)
             }
             
             if chosenMode == "dark" {
-                button.backgroundColor = colors.buttonBg
+                button.backgroundColor = colors.buttonBgDark
                 button.setTitleColor(.white, for: .normal)
             }
         }
@@ -67,7 +96,7 @@ extension UIViewController {
             }
         }
         
-        //background
+        //background & menu button
         if chosenMode == "light" {
             self.view.backgroundColor = colors.backgroundLight
         }
@@ -75,6 +104,7 @@ extension UIViewController {
         if chosenMode == "dark" {
             self.view.backgroundColor = colors.backgroundDark
         }
+        
     }
     func updateNavUI() {
         //colors used

@@ -8,22 +8,107 @@
 
 import UIKit
 
-class TimesView : UIViewController {
+class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    //Outlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cubeChangeSegmented: UISegmentedControl!
     
     @IBOutlet weak var bestTimeLabel: UILabel!
     @IBOutlet weak var lastTimeLabel: UILabel!
     @IBOutlet weak var avgLabel: UILabel!
     
     let defaults = UserDefaults.standard
+    var chosenCube = "3x3"
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
+        updateBackButton()
+        setTableView()
         setBestTime()
         setLastTime()
         setAvg()
     }
+    
+    //Configure Table View Results
+    
+    func setTableView() {
+    tableView.register(ResultsCell.self, forCellReuseIdentifier: "detailedCell")
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.translatesAutoresizingMaskIntoConstraints = false
+    tableView.layer.cornerRadius = 10
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var howManyRows = 1
+        if chosenCube == "3x3" {
+            if let threeByThree = defaults.stringArray(forKey: "times3x3") {
+                howManyRows = threeByThree.count
+            }
+        }
+        else if chosenCube == "2x2" {
+            if let twoByTwo = defaults.stringArray(forKey: "times2x2") {
+                howManyRows = twoByTwo.count
+            }
+        }
+        else if chosenCube == "piraminx" {
+            if let piraminx = defaults.stringArray(forKey: "timesPiraminx") {
+                howManyRows = piraminx.count
+            }
+        }
+        return howManyRows
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailedCell") as! ResultsCell
+        
+        if chosenCube == "3x3" {
+            if let threeByThree = defaults.stringArray(forKey: "times3x3") {
+                cell.timeLabel.text = threeByThree[indexPath.row]
+            }
+        }
+        else if chosenCube == "2x2" {
+            if let twoByTwo = defaults.stringArray(forKey: "times2x2") {
+                cell.timeLabel.text = twoByTwo[indexPath.row]
+            }
+            else {
+                cell.timeLabel.text = "You have no times in 2x2"
+            }
+        }
+        else if chosenCube == "piraminx" {
+            if let piraminx = defaults.stringArray(forKey: "timesPiraminx") {
+                cell.timeLabel.text = piraminx[indexPath.row]
+            }
+            else {
+                cell.timeLabel.text = "You have no times in piraminx"
+            }
+        }
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.height/8
+    }
+    
+    @IBAction func changingCubeControl(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            chosenCube = "3x3"
+        case 1:
+            chosenCube = "2x2"
+        case 2:
+            chosenCube = "piraminx"
+        default:
+            print("we've got a problem in segmented control")
+        }
+    tableView.reloadData()
+    }
+    
+    //Functions
+    
     
     func setBestTime() {
         let savedTimes = defaults.stringArray(forKey: "times") ?? nil

@@ -32,6 +32,7 @@ class Options : UIViewController {
         updateUI()
         setThemeSegmented()
         setAvgSegmented()
+        updateBackButton()
     }
     
     //Actions
@@ -77,6 +78,7 @@ class Options : UIViewController {
         
         updateUI()
         updateNavUI()
+        updateBackButton()
     }
     
     @IBAction func submitAction(_ sender: UIButton) {

@@ -12,6 +12,7 @@ import Foundation
 class ViewController: UIViewController {
 
     //Outlets
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startButtonOutlet: UIButton!
     @IBOutlet weak var sortingAlgorithmLabel: UILabel!
@@ -42,6 +43,8 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         updateUI()
         updateNavUI()
+        setStartButton()
+        setMenuButton()
     }
 
     //Actions
@@ -54,20 +57,13 @@ class ViewController: UIViewController {
         )
         stopwatch.start()
     }
-    @IBAction func stopButtonAction(_ sender: UIButton) {
-        let result = timerLabel.text
-        stopwatch.stop()
-        timerLabel.text = result
-        
-        saveTime(time: result!)
-        
-        sortingAlgorithmLabel.text = makeSortingAlgorithm()
-    }
     @IBAction func openMenu(_ sender: UIBarButtonItem) {
         
         if !menu.isMenuOpen {
             menu.darkenBackground(view:view)
             menu.showMenu(view:view)
+            menuButton.image = UIImage(named: "close")!.resizeImage(newWidth: 35)
+            menu.isMenuOpen = true
         }
         else {
             let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
@@ -75,6 +71,7 @@ class ViewController: UIViewController {
                 self.menu.blackView.alpha = 0
                 self.menu.menuCollectionView.frame = startingMenuPosition
             })
+            menuButton.image = UIImage(named: "menu")!.resizeImage(newWidth: 35)
             menu.isMenuOpen = false
         }
     }
@@ -93,10 +90,25 @@ class ViewController: UIViewController {
            timer.invalidate()
         }
     }
-
+    
+    func setMenuButton() {
+        menuButton.image = UIImage(named: "menu")!.resizeImage(newWidth: 35)
+        updateBarItem(sender: menuButton)
+    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
+        if stopwatch.isRunning {
+            if let touch = touches.first {
+                let result = timerLabel.text
+                stopwatch.stop()
+                timerLabel.text = result
+                
+                saveTime(time: result!)
+                
+                sortingAlgorithmLabel.text = makeSortingAlgorithm()
+            }
+        }
         if let touch = touches.first, touch.view == menu.blackView {
             UIView.animate(withDuration: 0.5, animations: {
                 self.menu.blackView.alpha = 0
@@ -104,6 +116,11 @@ class ViewController: UIViewController {
             })
             menu.isMenuOpen = false
         }
+    }
+    
+    func setStartButton() {
+        startButtonOutlet.layer.cornerRadius = 10
+        startButtonOutlet.alpha = 0.8
     }
     
     func saveTime(time: String) {
