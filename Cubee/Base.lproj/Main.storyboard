@@ -251,29 +251,42 @@
                                     <constraint firstAttribute="width" secondItem="fHS-XN-xi7" secondAttribute="height" multiplier="1:1" id="nLN-6y-9zS"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jn1-vT-TQe">
-                                <rect key="frame" x="40" y="451" width="240" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Check You Results"/>
-                                <connections>
-                                    <segue destination="0QB-g1-2x4" kind="show" identifier="results" id="Q1t-CM-gyi"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLr-l0-Kkd">
                                 <rect key="frame" x="92.5" y="195" width="135" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jn1-vT-TQe">
+                                <rect key="frame" x="35" y="245" width="250" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Show More.."/>
+                                <connections>
+                                    <segue destination="0QB-g1-2x4" kind="show" identifier="results" id="Q1t-CM-gyi"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y14-I9-CLd">
+                                <rect key="frame" x="35" y="289" width="250" height="210"/>
+                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="byk-Er-ywN"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cLr-l0-Kkd" firstAttribute="centerX" secondItem="yfn-xD-RDN" secondAttribute="centerX" id="2kh-fj-eJm"/>
                             <constraint firstItem="fHS-XN-xi7" firstAttribute="top" secondItem="LIL-vZ-Z6L" secondAttribute="top" constant="25" id="37x-sL-3Mc"/>
+                            <constraint firstItem="LIL-vZ-Z6L" firstAttribute="bottom" secondItem="Y14-I9-CLd" secondAttribute="bottom" constant="25" id="3zo-Uo-uAx"/>
                             <constraint firstItem="fHS-XN-xi7" firstAttribute="centerX" secondItem="yfn-xD-RDN" secondAttribute="centerX" id="DsQ-pO-8ea"/>
-                            <constraint firstItem="LIL-vZ-Z6L" firstAttribute="bottom" secondItem="jn1-vT-TQe" secondAttribute="bottom" constant="25" id="Pbf-PX-Ge8"/>
+                            <constraint firstItem="Y14-I9-CLd" firstAttribute="leading" secondItem="LIL-vZ-Z6L" secondAttribute="leading" constant="35" id="Kkt-40-zxM"/>
+                            <constraint firstItem="LIL-vZ-Z6L" firstAttribute="trailing" secondItem="Y14-I9-CLd" secondAttribute="trailing" constant="35" id="LXV-Qp-6mN"/>
                             <constraint firstItem="jn1-vT-TQe" firstAttribute="centerX" secondItem="yfn-xD-RDN" secondAttribute="centerX" id="RZO-Nk-tvs"/>
+                            <constraint firstItem="Y14-I9-CLd" firstAttribute="centerX" secondItem="yfn-xD-RDN" secondAttribute="centerX" id="Xgi-uP-nvI"/>
+                            <constraint firstItem="Y14-I9-CLd" firstAttribute="top" secondItem="jn1-vT-TQe" secondAttribute="bottom" constant="5" id="aMU-5v-u12"/>
+                            <constraint firstItem="jn1-vT-TQe" firstAttribute="leading" secondItem="LIL-vZ-Z6L" secondAttribute="leading" constant="35" id="dz3-sA-k9j"/>
                             <constraint firstItem="cLr-l0-Kkd" firstAttribute="top" secondItem="fHS-XN-xi7" secondAttribute="bottom" constant="20" id="hQV-vw-2CZ"/>
+                            <constraint firstItem="LIL-vZ-Z6L" firstAttribute="trailing" secondItem="jn1-vT-TQe" secondAttribute="trailing" constant="35" id="vcS-g6-99K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LIL-vZ-Z6L"/>
                     </view>
@@ -281,11 +294,12 @@
                         <outlet property="accountImage" destination="fHS-XN-xi7" id="jCt-O8-a1v"/>
                         <outlet property="nickLabel" destination="cLr-l0-Kkd" id="bey-KX-gWP"/>
                         <outlet property="resultsButton" destination="jn1-vT-TQe" id="18g-QF-Njs"/>
+                        <outlet property="tableView" destination="Y14-I9-CLd" id="Fu1-K7-5ui"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jNn-vn-bt5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="-295"/>
+            <point key="canvasLocation" x="251.25" y="-295.77464788732397"/>
         </scene>
         <!--My Results-->
         <scene sceneID="Axq-44-D0a">
