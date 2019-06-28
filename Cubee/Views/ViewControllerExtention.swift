@@ -49,7 +49,7 @@ extension UIViewController {
             }
             
             if chosenMode == "dark" {
-                button.backgroundColor = .black
+                button.backgroundColor = colors.buttonBg
                 button.setTitleColor(.white, for: .normal)
             }
         }
@@ -69,11 +69,27 @@ extension UIViewController {
         
         //background
         if chosenMode == "light" {
-            self.view.backgroundColor = .white
+            self.view.backgroundColor = colors.backgroundLight
         }
         
         if chosenMode == "dark" {
-            self.view.backgroundColor = .darkGray
+            self.view.backgroundColor = colors.backgroundDark
+        }
+    }
+    func updateNavUI() {
+        //colors used
+        let colors = Colors()
+        //mode
+        let chosenMode = UserDefaults.standard.string(forKey: "theme")
+        guard let nav = navigationController else {return}
+        
+        if chosenMode == "light" {
+            nav.navigationBar.barTintColor = colors.navbarLight
+            nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        }
+        else if chosenMode == "dark" {
+            nav.navigationBar.barTintColor = colors.navbarDark
+            nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         }
     }
     
@@ -115,4 +131,5 @@ extension UIViewController {
         }
         return results
     }
+    
 }

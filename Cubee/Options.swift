@@ -76,6 +76,7 @@ class Options : UIViewController {
         defaults.set(newOption, forKey: "theme")
         
         updateUI()
+        updateNavUI()
     }
     
     @IBAction func submitAction(_ sender: UIButton) {

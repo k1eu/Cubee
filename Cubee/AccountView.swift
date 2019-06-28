@@ -23,9 +23,13 @@ class AccountView : UIViewController {
         setAvatar()
     }
     func setNickname() {
-        let actualNick = defaults.string(forKey: "nick")
+        let actualNick = "Nickname"
+        nickLabel.text = actualNick
+        if let nickname = defaults.string(forKey: "nick"), nickname != "" {
+            nickLabel.text = nickname
+        }
         
-        nickLabel.text = actualNick ?? "Nickname"
+        
         
         
     }
