@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.set("light", forKey: "theme")
         }
         
+        let count = defaults.string(forKey: "count")
+        if count == nil || count == "" {
+            defaults.set("5", forKey: "count")
+        }
         
         return true
     }
