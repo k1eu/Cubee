@@ -31,6 +31,11 @@ class ViewController: UIViewController {
         let algorithm = sortingInstance.threeByThree()
         sortingAlgorithmLabel.text = algorithm
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+    }
 
     //Actions
     @IBAction func startButtonAction(_ sender:

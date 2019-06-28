@@ -25,7 +25,8 @@ extension UIViewController {
         let chosenMode = UserDefaults.standard.string(forKey: "Theme")
         
         //labels
-        let labels = self.view.subviews.compactMap { $0 as? UILabel }
+        let labels = getLabelsInView(view: self.view)
+        print(labels)
         for label in labels {
             if chosenMode == "Light mode" {
                 label.textColor = .black
@@ -37,14 +38,30 @@ extension UIViewController {
         }
         
         //buttons
-        let buttons = self.view.subviews.compactMap { $0 as? UIButton }
+        let buttons = getButtonsInView(view: self.view)
+        print(buttons)
         for button in buttons {
             if chosenMode == "Light mode" {
-                button.backgroundColor = .black
+                button.backgroundColor = .none
+                button.setTitleColor(.blue, for: .normal)
             }
             
             if chosenMode == "Dark mode" {
-                button.backgroundColor = .white
+                button.backgroundColor = .black
+                button.setTitleColor(.white, for: .normal)
+            }
+        }
+        
+        //segmented
+        let segmenteds = getSegmentedsInView(view: self.view)
+        print(buttons)
+        for segmented in segmenteds {
+            if chosenMode == "Light mode" {
+                segmented.tintColor = .blue
+            }
+            
+            if chosenMode == "Dark mode" {
+                segmented.tintColor = .white
             }
         }
         
@@ -56,5 +73,44 @@ extension UIViewController {
         if chosenMode == "Dark mode" {
             self.view.backgroundColor = .darkGray
         }
+    }
+    
+    func getLabelsInView(view: UIView) -> [UILabel] {
+        var results = [UILabel]()
+        
+        for subview in view.subviews as [UIView] {
+            if let labelView = subview as? UILabel {
+                results += [labelView]
+            } else {
+                results += getLabelsInView(view: subview)
+            }
+        }
+        return results
+    }
+    
+    func getButtonsInView(view: UIView) -> [UIButton] {
+        var results = [UIButton]()
+        
+        for subview in view.subviews as [UIView] {
+            if let labelView = subview as? UIButton {
+                results += [labelView]
+            } else {
+                results += getButtonsInView(view: subview)
+            }
+        }
+        return results
+    }
+    
+    func getSegmentedsInView(view: UIView) -> [UISegmentedControl] {
+        var results = [UISegmentedControl]()
+        
+        for subview in view.subviews as [UIView] {
+            if let labelView = subview as? UISegmentedControl {
+                results += [labelView]
+            } else {
+                results += getSegmentedsInView(view: subview)
+            }
+        }
+        return results
     }
 }

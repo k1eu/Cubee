@@ -10,4 +10,21 @@ import UIKit
 
 class AccountView : UIViewController {
     
+    @IBOutlet weak var nickLabel: UILabel!
+    @IBOutlet weak var accountImage: UIImageView!
+    @IBOutlet weak var resultsButton: UIButton!
+    
+    let defaults = UserDefaults.standard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
+        setNickname()
+    }
+    
+    func setNickname() {
+        let actualNick = defaults.string(forKey: "Nick")
+        
+        nickLabel.text = actualNick
+    }
 }

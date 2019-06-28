@@ -26,8 +26,10 @@ class Options : UIViewController {
         hideKeyboardWhenTappedAround()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateUI()
+        setThemeSegmented()
     }
     
     //Actions
@@ -48,8 +50,18 @@ class Options : UIViewController {
         let newOption = sender.titleForSegment(at: selectedSegment)
         
         defaults.set(newOption, forKey: "Theme")
+        
+        updateUI()
     }
     
     
     //Functions
+    func setThemeSegmented() {
+        let savedData = defaults.string(forKey: "Theme")
+        if savedData == "Light mode" {
+            themeSegmentedControll.selectedSegmentIndex = 0
+        } else {
+            themeSegmentedControll.selectedSegmentIndex = 1
+        }
+    }
 }
