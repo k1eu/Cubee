@@ -36,6 +36,12 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
         switch setting.imgName {
         case "account":
             initializeNewController(withIdentifier: "account")
+        case "cube1":
+            print("XD1")
+        case "cube2":
+            print("XD2")
+        case "cube3":
+            print("XD3")
         case "options":
             initializeNewController(withIdentifier: "options")
         default:

@@ -19,8 +19,9 @@ class MenuOptions {
         }
         let settings : [SettingsCell] = [
             SettingsCell(labelText: nickname, imgName: "account"),
-            SettingsCell(labelText: "Kostka1", imgName: nil),
-            SettingsCell(labelText: nil, imgName: "account"),
+            SettingsCell(labelText: nil, imgName: "cube1"),
+            SettingsCell(labelText: nil, imgName: "cube2"),
+            SettingsCell(labelText: nil, imgName: "cube3"),
             SettingsCell(labelText: nil, imgName: "options")
         ]
         return settings
