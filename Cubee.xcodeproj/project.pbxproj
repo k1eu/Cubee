@@ -21,6 +21,8 @@
 		7325178222C4F1B900B5C5FC /* TimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325178122C4F1B900B5C5FC /* TimesView.swift */; };
 		7325178422C5115600B5C5FC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325178322C5115600B5C5FC /* Menu.swift */; };
 		7325178622C5178300B5C5FC /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7325178522C5178300B5C5FC /* Cells.swift */; };
+		7338E9A222C6522900594121 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7338E9A122C6522900594121 /* Colors.swift */; };
+		7338E9A422C6527B00594121 /* MenuTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7338E9A322C6527B00594121 /* MenuTabs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		7325178122C4F1B900B5C5FC /* TimesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimesView.swift; path = Cubee/TimesView.swift; sourceTree = SOURCE_ROOT; };
 		7325178322C5115600B5C5FC /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Cubee/Menu.swift; sourceTree = SOURCE_ROOT; };
 		7325178522C5178300B5C5FC /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Cells.swift; path = Cubee/Cells.swift; sourceTree = SOURCE_ROOT; };
+		7338E9A122C6522900594121 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7338E9A322C6527B00594121 /* MenuTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuTabs.swift; path = Cubee/Views/MenuTabs.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 			children = (
 				730BACC922C4AF250082FC85 /* NavigationViewController.swift */,
 				139A2D4522C5044F00337E52 /* ViewControllerExtention.swift */,
+				7338E9A122C6522900594121 /* Colors.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				7325178322C5115600B5C5FC /* Menu.swift */,
+				7338E9A322C6527B00594121 /* MenuTabs.swift */,
 				7325178522C5178300B5C5FC /* Cells.swift */,
 			);
 			path = "Main Screen";
@@ -218,7 +224,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7338E9A422C6527B00594121 /* MenuTabs.swift in Sources */,
 				730BACCA22C4AF250082FC85 /* NavigationViewController.swift in Sources */,
+				7338E9A222C6522900594121 /* Colors.swift in Sources */,
 				117CFF6022A8643900FDA9DA /* ViewController.swift in Sources */,
 				117CFF5E22A8643900FDA9DA /* AppDelegate.swift in Sources */,
 				730BACCD22C4B1900082FC85 /* Timer.swift in Sources */,

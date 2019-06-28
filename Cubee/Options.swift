@@ -17,6 +17,7 @@ class Options : UIViewController {
     @IBOutlet weak var nickTextfield: UITextField!
     @IBOutlet weak var avgSegmentedControll: UISegmentedControl!
     @IBOutlet weak var themeSegmentedControll: UISegmentedControl!
+    @IBOutlet weak var submitButton: UIButton!
     
     //View did load
     override func viewDidLoad() {
@@ -62,6 +63,8 @@ class Options : UIViewController {
         updateUI()
     }
     
+    @IBAction func submitAction(_ sender: UIButton) {
+    }
     
     //Functions
     func setThemeSegmented() {

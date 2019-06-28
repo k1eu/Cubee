@@ -21,6 +21,8 @@ extension UIViewController {
     }
     
     func updateUI() {
+        //colors used
+        let colors = Colors()
         //mode
         let chosenMode = UserDefaults.standard.string(forKey: "theme")
         
@@ -43,7 +45,7 @@ extension UIViewController {
         for button in buttons {
             if chosenMode == "light" {
                 button.backgroundColor = .none
-                button.setTitleColor(.blue, for: .normal)
+                button.setTitleColor(colors.ourBlue, for: .normal)
             }
             
             if chosenMode == "dark" {
@@ -57,7 +59,7 @@ extension UIViewController {
         print(buttons)
         for segmented in segmenteds {
             if chosenMode == "light" {
-                segmented.tintColor = .blue
+                segmented.tintColor = colors.ourBlue
             }
             
             if chosenMode == "dark" {
