@@ -22,7 +22,6 @@ class AccountView : UIViewController {
         setNickname()
         setAvatar()
     }
-    /Users/k1eu/Programowanie/Xcode Saves/Cubee/Cubee/AccountView.swift
     func setNickname() {
         let actualNick = defaults.string(forKey: "nick")
         
