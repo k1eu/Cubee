@@ -28,8 +28,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let algorithm = sortingInstance.threeByThree()
-        sortingAlgorithmLabel.text = algorithm
+        sortingAlgorithmLabel.text = sortingInstance.threeByThree()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +50,7 @@ class ViewController: UIViewController {
         let result = timerLabel.text
         stopwatch.stop()
         timerLabel.text = result
+        sortingAlgorithmLabel.text = sortingInstance.threeByThree()
     }
     @IBAction func openMenu(_ sender: UIBarButtonItem) {
         
