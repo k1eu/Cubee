@@ -47,7 +47,15 @@ class Options : UIViewController {
     
     @IBAction func themeControllValueChanged(_ sender: UISegmentedControl) {
         let selectedSegment = sender.selectedSegmentIndex
-        let newOption = sender.titleForSegment(at: selectedSegment)
+        let selectedOption = sender.titleForSegment(at: selectedSegment)
+        var newOption = String()
+        
+        if selectedOption == "Light mode" {
+            newOption = "light"
+        } else {
+            newOption = "dark"
+        }
+        
         
         defaults.set(newOption, forKey: "theme")
         
