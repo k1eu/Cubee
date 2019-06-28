@@ -25,8 +25,12 @@ class ViewController: UIViewController {
         leftSideMenu.mainController = self
         return leftSideMenu
     }()
-    var savedTimes = [String]()
-    var timesCouter = 0
+    var savedTimes3x3 = [String]()
+    var savedTimes2x2 = [String]()
+    var savedTimesPiraminx = [String]()
+    var timesCouter3x3 = 0
+    var timesCouter2x2 = 0
+    var timesCouterPiraminx = 0
     let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
@@ -103,19 +107,50 @@ class ViewController: UIViewController {
     }
     
     func saveTime(time: String) {
-        if timesCouter >= 0 && timesCouter < 20  {
-            savedTimes += [time]
-            timesCouter += 1
-        } else if timesCouter >= 20 {
-            savedTimes.removeFirst()
-            savedTimes += [time]
-        } else {
-            print("Error: couldnt save time")
+        let cubeType = defaults.string(forKey: "cubeType")
+        
+        switch cubeType! {
+        case "3x3":
+            if timesCouter3x3 >= 0 && timesCouter3x3 < 20  {
+                savedTimes3x3 += [time]
+                timesCouter3x3 += 1
+            } else if timesCouter3x3 >= 20 {
+                savedTimes3x3.removeFirst()
+                savedTimes3x3 += [time]
+            } else {
+                print("Error: couldnt save time")
+            }
+            
+            defaults.set(savedTimes3x3, forKey: "times3x3")
+        case "2x2":
+            if timesCouter2x2 >= 0 && timesCouter2x2 < 20  {
+                savedTimes2x2 += [time]
+                timesCouter2x2 += 1
+            } else if timesCouter2x2 >= 20 {
+                savedTimes2x2.removeFirst()
+                savedTimes2x2 += [time]
+            } else {
+                print("Error: couldnt save time")
+            }
+            
+            defaults.set(savedTimes2x2, forKey: "times2x2")
+        case "Piraminx":
+            if timesCouterPiraminx >= 0 && timesCouterPiraminx < 20  {
+                savedTimesPiraminx += [time]
+                timesCouterPiraminx += 1
+            } else if timesCouterPiraminx >= 20 {
+                savedTimesPiraminx.removeFirst()
+                savedTimesPiraminx += [time]
+            } else {
+                print("Error: couldnt save time")
+            }
+            
+            defaults.set(savedTimesPiraminx, forKey: "timesPiraminx")
+        default:
+            print("Sth went wrong")
         }
         
-        print(savedTimes, " counter: ", timesCouter)
         
-        defaults.set(savedTimes, forKey: "times")
     }
 }
 
