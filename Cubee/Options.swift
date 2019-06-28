@@ -35,21 +35,21 @@ class Options : UIViewController {
     //Actions
     @IBAction func nickChanged(_ sender: Any) {
         let newNick = nickTextfield.text
-        defaults.set(newNick, forKey: "Nick")
+        defaults.set(newNick, forKey: "nick")
     }
     
     @IBAction func avgControllValueChanged(_ sender: UISegmentedControl) {
         let selectedSegment = sender.selectedSegmentIndex
         let newOption = sender.titleForSegment(at: selectedSegment)
         
-        defaults.set(newOption, forKey: "AVG")
+        defaults.set(newOption, forKey: "avg")
     }
     
     @IBAction func themeControllValueChanged(_ sender: UISegmentedControl) {
         let selectedSegment = sender.selectedSegmentIndex
         let newOption = sender.titleForSegment(at: selectedSegment)
         
-        defaults.set(newOption, forKey: "Theme")
+        defaults.set(newOption, forKey: "theme")
         
         updateUI()
     }
@@ -57,8 +57,8 @@ class Options : UIViewController {
     
     //Functions
     func setThemeSegmented() {
-        let savedData = defaults.string(forKey: "Theme")
-        if savedData == "Light mode" {
+        let savedData = defaults.string(forKey: "theme")
+        if savedData == "light" {
             themeSegmentedControll.selectedSegmentIndex = 0
         } else {
             themeSegmentedControll.selectedSegmentIndex = 1

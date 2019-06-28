@@ -22,17 +22,17 @@ extension UIViewController {
     
     func updateUI() {
         //mode
-        let chosenMode = UserDefaults.standard.string(forKey: "Theme")
+        let chosenMode = UserDefaults.standard.string(forKey: "theme")
         
         //labels
         let labels = getLabelsInView(view: self.view)
         print(labels)
         for label in labels {
-            if chosenMode == "Light mode" {
+            if chosenMode == "light" {
                 label.textColor = .black
             }
             
-            if chosenMode == "Dark mode" {
+            if chosenMode == "dark" {
                 label.textColor = .white
             }
         }
@@ -41,12 +41,12 @@ extension UIViewController {
         let buttons = getButtonsInView(view: self.view)
         print(buttons)
         for button in buttons {
-            if chosenMode == "Light mode" {
+            if chosenMode == "light" {
                 button.backgroundColor = .none
                 button.setTitleColor(.blue, for: .normal)
             }
             
-            if chosenMode == "Dark mode" {
+            if chosenMode == "dark" {
                 button.backgroundColor = .black
                 button.setTitleColor(.white, for: .normal)
             }
@@ -56,21 +56,21 @@ extension UIViewController {
         let segmenteds = getSegmentedsInView(view: self.view)
         print(buttons)
         for segmented in segmenteds {
-            if chosenMode == "Light mode" {
+            if chosenMode == "light" {
                 segmented.tintColor = .blue
             }
             
-            if chosenMode == "Dark mode" {
+            if chosenMode == "dark" {
                 segmented.tintColor = .white
             }
         }
         
         //background
-        if chosenMode == "Light mode" {
+        if chosenMode == "light" {
             self.view.backgroundColor = .white
         }
         
-        if chosenMode == "Dark mode" {
+        if chosenMode == "dark" {
             self.view.backgroundColor = .darkGray
         }
     }

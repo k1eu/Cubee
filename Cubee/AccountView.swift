@@ -23,7 +23,7 @@ class AccountView : UIViewController {
     }
     
     func setNickname() {
-        let actualNick = defaults.string(forKey: "Nick")
+        let actualNick = defaults.string(forKey: "nick")
         
         nickLabel.text = actualNick
     }
