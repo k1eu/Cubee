@@ -13,10 +13,10 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
     let cellId = "cellId"
     var mainController : ViewController?
     let settings : [SettingsCell] = [
-    SettingsCell(labelText: "Nickname", imgName: "account"),
-    SettingsCell(labelText: "Kostka1", imgName: nil),
-    SettingsCell(labelText: nil, imgName: "account"),
-    SettingsCell(labelText: nil, imgName: "options")
+        SettingsCell(labelText: "Nickname", imgName: "account"),
+        SettingsCell(labelText: "Kostka1", imgName: nil),
+        SettingsCell(labelText: nil, imgName: "account"),
+        SettingsCell(labelText: nil, imgName: "options")
     ]
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return settings.count
@@ -29,7 +29,7 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height/4.3)
+        return CGSize(width: collectionView.frame.width/1.2, height: collectionView.frame.width/1.2)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -80,8 +80,8 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
     }
     func initializeNewController(withIdentifier : String ) {
         if let view = mainController?.view {
-        let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
-        
+            let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
+            
             UIView.animate(withDuration: 0.5, animations: {
                 self.blackView.alpha = 0
                 self.menuCollectionView.frame = startingMenuPosition
@@ -90,8 +90,8 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
                 self.mainController?.performSegue(withIdentifier: withIdentifier, sender: self.mainController.self)
             })
             isMenuOpen = false
-            }
         }
+    }
     
     override init() {
         super.init()

@@ -28,7 +28,7 @@ class MenuCell : BaseCell {
                 labelName.isHidden = false
                 if setting?.imgName == nil {
                     setOnlyLabelConstraints()
-          //          setBackgroundConstraints()
+                    //          setBackgroundConstraints()
                 }
             }
             if let image = setting?.imgName {
@@ -37,17 +37,21 @@ class MenuCell : BaseCell {
                 cellBackground.alpha = 1
                 if setting?.labelText == nil {
                     if image == "options" {
-                    setOptionsConstraints()
-                    cellBackground.alpha = 0
+                        setOptionsConstraints()
+                        cellBackground.alpha = 0
                     }
                     else {
-                      setOnlyImgConstraints()
-             //           setBackgroundConstraints()
+                        setOnlyImgConstraints()
                     }
                 }
                 else {
-                    setStandardConstraints()
-           //         setBackgroundConstraints()
+                    if image == "account" {
+                        setAccountConstraints()
+                    }
+                    else {
+                        setStandardConstraints()
+                    }
+                    
                 }
                 
             }
@@ -95,17 +99,26 @@ class MenuCell : BaseCell {
         avatarView.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
         avatarView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -65).isActive = true
         avatarView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
-        labelName.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         labelName.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: 15).isActive = true
+    }
+    
+    func setAccountConstraints() {
+        avatarView.heightAnchor.constraint(equalTo: avatarView.widthAnchor).isActive = true
+        avatarView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
+        avatarView.topAnchor.constraint(equalTo: self.topAnchor, constant: 35).isActive = true
+        avatarView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
+        labelName.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: 5).isActive = true
+        labelName.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
     }
     func setOptionsConstraints() {
         labelName.isHidden = true
         avatarView.isHidden = false
         avatarView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        avatarView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        avatarView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        avatarView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        avatarView.topAnchor.constraint(equalTo: self.topAnchor, constant: 55).isActive = true
+        avatarView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -55).isActive = true
+        avatarView.heightAnchor.constraint(equalTo:avatarView.widthAnchor).isActive = true
     }
     
     func setOnlyImgConstraints() {
@@ -113,8 +126,8 @@ class MenuCell : BaseCell {
         avatarView.isHidden = false
         avatarView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         avatarView.heightAnchor.constraint(equalTo:avatarView.widthAnchor).isActive = true
-        avatarView.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
-        avatarView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25).isActive = true
+        avatarView.topAnchor.constraint(equalTo: self.topAnchor, constant: 30).isActive = true
+        avatarView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30).isActive = true
     }
     func setOnlyLabelConstraints() {
         labelName.isHidden = false
