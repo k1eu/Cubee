@@ -11,19 +11,17 @@ import UIKit
 class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     var isMenuOpen : Bool = false
     let cellId = "cellId"
+    let menuSettings = MenuOptions()
     var mainController : ViewController?
-    let settings : [SettingsCell] = [
-        SettingsCell(labelText: "Nickname", imgName: "account"),
-        SettingsCell(labelText: "Kostka1", imgName: nil),
-        SettingsCell(labelText: nil, imgName: "account"),
-        SettingsCell(labelText: nil, imgName: "options")
-    ]
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let settings = menuSettings.setSettingsTabs()
         return settings.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = menuCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MenuCell
+        let settings = menuSettings.setSettingsTabs()
         let setting = settings[indexPath.item]
         cell.setting = setting
         return cell
@@ -32,7 +30,7 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
         return CGSize(width: collectionView.frame.width/1.2, height: collectionView.frame.width/1.2)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let settings = menuSettings.setSettingsTabs()
         let setting = settings[indexPath.item]
         print(setting.imgName)
         switch setting.imgName {
