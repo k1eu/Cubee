@@ -15,8 +15,7 @@ struct SettingsCell {
 
 
 class MenuCell : BaseCell {
-    
-    
+    let defaults = UserDefaults.standard
     
     var setting: SettingsCell? {
         didSet {
@@ -31,7 +30,11 @@ class MenuCell : BaseCell {
                     //          setBackgroundConstraints()
                 }
             }
+            
+            
+            
             if let image = setting?.imgName {
+                
                 avatarView.image = UIImage(named: image)
                 avatarView.isHidden = false
                 cellBackground.alpha = 1
@@ -47,6 +50,16 @@ class MenuCell : BaseCell {
                 else {
                     if image == "account" {
                         setAccountConstraints()
+                        var xd = UIImage()
+                        if let imgURL = defaults.url(forKey: "imgurl") {
+                            if let imageData: NSData = NSData(contentsOf: imgURL) {
+                                xd = UIImage(data: imageData as Data)!
+                                avatarView.image = xd
+                                avatarView.layer.masksToBounds = true
+                                avatarView.layer.cornerRadius = avatarView.frame.width/2
+                                
+                            }
+                        }
                     }
                     else {
                         setStandardConstraints()
@@ -77,7 +90,6 @@ class MenuCell : BaseCell {
         labelName.translatesAutoresizingMaskIntoConstraints = false
         avatarView.translatesAutoresizingMaskIntoConstraints = false
         cellBackground.translatesAutoresizingMaskIntoConstraints = false
-        
         setBackgroundConstraints()
         
     }
@@ -110,7 +122,6 @@ class MenuCell : BaseCell {
         avatarView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
         labelName.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: 5).isActive = true
         labelName.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
     }
     func setOptionsConstraints() {
         labelName.isHidden = true

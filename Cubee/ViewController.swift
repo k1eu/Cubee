@@ -124,6 +124,7 @@ class ViewController: UIViewController {
                 self.menu.menuCollectionView.frame = startingMenuPosition
             })
             menu.isMenuOpen = false
+            menuButton.image = UIImage(named: "menu")!.resizeImage(newWidth: 35)
         }
     }
     

@@ -19,15 +19,20 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
     let defaults = UserDefaults.standard
     var imagePicker = UIImagePickerController()
     
+    override func viewDidLoad() {
+        setTableView()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
         updateBackButton()
         setNickname()
         setAvatar()
-        setTableView()
-        print(defaults.stringArray(forKey: "times"))
+        tableView.reloadData()
+        print(defaults.stringArray(forKey: "times3x3"))
     }
+    
     
     //actions
     @IBAction func pickImageAction(_ sender: Any) {
@@ -60,22 +65,24 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.layer.cornerRadius = 10
     }
+    
     func setAvatar() {
-        let actualImage = defaults.string(forKey: "img")
         
-        accountImage.image = UIImage(named: actualImage ?? "account")
+        if let imgURL = defaults.url(forKey: "imgurl") {
+            if let imageData: NSData = NSData(contentsOf: imgURL) {
+                accountImage.image = UIImage(data: imageData as Data)
+            }
+            else {
+                accountImage.image = UIImage(named:defaults.string(forKey: "account")!)
+            }
+        }
+        else {
+            accountImage.image = UIImage(named:"account")
+        }
+        
+
     }
-    
-    /*func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        self.dismiss(animated: true, completion: { () -> Void in
-            
-        })
-        print("weszlo")
-        accountImage.image = image
-        print("siema ", image)
-        defaults.set(image, forKey: "img")
-    }*/
-    
+   
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         print("weszlo")
@@ -83,7 +90,28 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         print("czy to to ", image)
-        accountImage.image = image
+        
+        let imageName = UUID().uuidString
+        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+        
+        if let jpegData = image.jpegData(compressionQuality: 0.8) {
+            try? jpegData.write(to: imagePath)
+            defaults.set(imagePath, forKey: "imgurl")
+        }
+        
+        
+        if let imageData: NSData = NSData(contentsOf: imagePath) {
+            accountImage.image = UIImage(data: imageData as Data)
+        }
+        else {
+            accountImage.image = UIImage(named:defaults.string(forKey: "account")!)
+        }
+
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
     
     //tableview configuarion
@@ -99,6 +127,7 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultId") as! ResultsCell
         if let storedResults = defaults.stringArray(forKey: "times3x3") {
             cell.timeLabel.text = storedResults[indexPath.row]
+            print("wchodzi tu?")
             return cell
         }
         else {

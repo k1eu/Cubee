@@ -25,6 +25,7 @@
 		7338E9A422C6527B00594121 /* MenuTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7338E9A322C6527B00594121 /* MenuTabs.swift */; };
 		7338E9A622C68BF500594121 /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7338E9A522C68BF500594121 /* ResultsCell.swift */; };
 		7338E9A822C6C3F800594121 /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7338E9A722C6C3F800594121 /* ImageResize.swift */; };
+		73A1D69822C798EB00915188 /* Circular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1D69722C798EB00915188 /* Circular.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		7338E9A322C6527B00594121 /* MenuTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuTabs.swift; path = Cubee/Views/MenuTabs.swift; sourceTree = SOURCE_ROOT; };
 		7338E9A522C68BF500594121 /* ResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
 		7338E9A722C6C3F800594121 /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
+		73A1D69722C798EB00915188 /* Circular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circular.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				139A2D4522C5044F00337E52 /* ViewControllerExtention.swift */,
 				7338E9A122C6522900594121 /* Colors.swift */,
 				7338E9A722C6C3F800594121 /* ImageResize.swift */,
+				73A1D69722C798EB00915188 /* Circular.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				7338E9A622C68BF500594121 /* ResultsCell.swift in Sources */,
 				730BACCF22C4B5810082FC85 /* Sorting.swift in Sources */,
 				7325178222C4F1B900B5C5FC /* TimesView.swift in Sources */,
+				73A1D69822C798EB00915188 /* Circular.swift in Sources */,
 				7325178622C5178300B5C5FC /* Cells.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
