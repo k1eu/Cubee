@@ -59,6 +59,20 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
                 howManyRows = piraminx.count
             }
         }
+        
+        let count = defaults.string(forKey: "count")
+        switch count {
+        case "5":
+            howManyRows = howManyRows > 5 ? 5 : howManyRows
+        case "10":
+            howManyRows = howManyRows > 10 ? 10 : howManyRows
+        case "15":
+            howManyRows = howManyRows > 15 ? 15 : howManyRows
+        case "20":
+            howManyRows = howManyRows > 20 ? 20 : howManyRows
+        default:
+            print("Error: You dont have other choices")
+        }
         return howManyRows
     }
     
