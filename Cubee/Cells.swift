@@ -16,9 +16,27 @@ struct SettingsCell {
 
 class MenuCell : BaseCell {
     let defaults = UserDefaults.standard
+    let colors = Colors()
     
     var setting: SettingsCell? {
         didSet {
+            
+            avatarView.removeConstraints(avatarView.constraints)
+            
+            if let mode = defaults.string(forKey: "theme"){
+                if mode == "light" {
+                    labelName.textColor = .black
+                    cellBackground.backgroundColor = colors.navbarLight
+                }
+                else if mode == "dark" {
+                    labelName.textColor = .white
+                    cellBackground.backgroundColor = colors.navbarDark
+                }
+                else {
+                    print("prableeem")
+                }
+            }
+            
             
             avatarView.isHidden = true
             labelName.isHidden = true
@@ -42,6 +60,18 @@ class MenuCell : BaseCell {
                     if image == "options" {
                         setOptionsConstraints()
                         cellBackground.alpha = 0
+                        
+                        if let mode = defaults.string(forKey: "theme"){
+                            if mode == "light" {
+                                let temporaryImg = avatarView.image?.imageWithColor(color1: .black)
+                                avatarView.image = temporaryImg
+                            }
+                            else if mode == "dark" {
+                                let temporaryImg = avatarView.image?.imageWithColor(color1: .white)
+                                avatarView.image = temporaryImg
+                            }
+                        }
+                        
                     }
                     else {
                         setOnlyImgConstraints()
@@ -56,7 +86,7 @@ class MenuCell : BaseCell {
                                 xd = UIImage(data: imageData as Data)!
                                 avatarView.image = xd
                                 avatarView.layer.masksToBounds = true
-                                avatarView.layer.cornerRadius = avatarView.frame.width/2
+                                avatarView.layer.cornerRadius = 10
                                 
                             }
                         }
@@ -87,6 +117,9 @@ class MenuCell : BaseCell {
         insertSubview(cellBackground, at: 0)
         addSubview(labelName)
         addSubview(avatarView)
+        labelName.adjustsFontSizeToFitWidth = true
+        labelName.minimumScaleFactor = 0.1
+        labelName.numberOfLines = 0
         labelName.translatesAutoresizingMaskIntoConstraints = false
         avatarView.translatesAutoresizingMaskIntoConstraints = false
         cellBackground.translatesAutoresizingMaskIntoConstraints = false
@@ -122,6 +155,9 @@ class MenuCell : BaseCell {
         avatarView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
         labelName.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: 5).isActive = true
         labelName.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        labelName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true
+        labelName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25).isActive = true
+        labelName.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -25).isActive = true
     }
     func setOptionsConstraints() {
         labelName.isHidden = true
@@ -162,5 +198,6 @@ class BaseCell : UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
 
 

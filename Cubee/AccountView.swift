@@ -18,6 +18,7 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
     
     let defaults = UserDefaults.standard
     var imagePicker = UIImagePickerController()
+    var colors = Colors()
     
     override func viewDidLoad() {
         setTableView()
@@ -26,10 +27,13 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
+        
         updateBackButton()
         setNickname()
         setAvatar()
         tableView.reloadData()
+        setAddAvatarButton()
+        setResultsButton()
         print(defaults.stringArray(forKey: "times3x3"))
     }
     
@@ -72,10 +76,10 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
             if let imageData: NSData = NSData(contentsOf: imgURL) {
                 accountImage.image = UIImage(data: imageData as Data)
                 accountImage.layer.masksToBounds = true
-                accountImage.layer.cornerRadius = accountImage.frame.width/2
+                accountImage.layer.cornerRadius = 10
             }
             else {
-                accountImage.image = UIImage(named:defaults.string(forKey: "account")!)
+                accountImage.image = UIImage(named:"account")
             }
         }
         else {
@@ -84,6 +88,34 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
         
 
     }
+    func setAddAvatarButton() {
+        
+        if let chosen = defaults.string(forKey: "theme") {
+            if chosen == "light" {
+                pickImageButton.backgroundColor = colors.navbarLight
+                pickImageButton.layer.borderColor = colors.navbarDark.cgColor
+                pickImageButton.layer.borderWidth = 2
+                pickImageButton.layer.cornerRadius = pickImageButton.frame.width/2
+                pickImageButton.titleLabel?.textAlignment = .center
+                pickImageButton.contentVerticalAlignment = .center
+            }
+            else {
+                pickImageButton.backgroundColor = colors.navbarLight
+                pickImageButton.layer.borderColor = colors.navbarDark.cgColor
+                pickImageButton.layer.borderWidth = 2
+                pickImageButton.layer.cornerRadius = pickImageButton.frame.width/2
+                pickImageButton.titleLabel?.textAlignment = .center
+                pickImageButton.contentVerticalAlignment = .center
+                pickImageButton.setTitleColor(.black, for: .normal)
+            }
+        }
+    }
+    
+    func setResultsButton() {
+        resultsButton.layer.cornerRadius = 5
+        resultsButton.contentVerticalAlignment = .top
+    }
+    
    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
@@ -119,7 +151,12 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
     //tableview configuarion
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let savedTimes = defaults.stringArray(forKey: "times3x3") else {return 1}
-        return savedTimes.count
+        if savedTimes.count < 4 {
+            return savedTimes.count
+        }
+        else {
+            return 4
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let tableViewHeight = tableView.frame.height
@@ -129,7 +166,6 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultId") as! ResultsCell
         if let storedResults = defaults.stringArray(forKey: "times3x3") {
             cell.timeLabel.text = storedResults[indexPath.row]
-            print("wchodzi tu?")
             return cell
         }
         else {

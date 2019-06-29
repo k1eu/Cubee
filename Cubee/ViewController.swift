@@ -46,6 +46,7 @@ class ViewController: UIViewController {
         updateNavUI()
         setStartButton()
         setMenuButton()
+        updateRefreshButton()
     }
 
     //Actions
@@ -96,6 +97,19 @@ class ViewController: UIViewController {
         }
         else {
            timer.invalidate()
+        }
+    }
+    func updateRefreshButton() {
+        refreshAlgorithmButton.backgroundColor = .clear
+        if let chosen = defaults.string(forKey: "theme") {
+            if chosen == "light" {
+                let xd = refreshAlgorithmButton.imageView?.image?.imageWithColor(color1: .black)
+                refreshAlgorithmButton.imageView?.image = xd
+            }
+            else {
+                let xd = refreshAlgorithmButton.imageView?.image?.imageWithColor(color1: .white)
+                refreshAlgorithmButton.imageView?.image = xd
+            }
         }
     }
     

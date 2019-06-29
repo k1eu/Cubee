@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Options : UIViewController {
+class Options : UIViewController, UITextFieldDelegate {
     
     //Variables and Constants
     let defaults = UserDefaults.standard
@@ -25,6 +25,8 @@ class Options : UIViewController {
         // Do any additional setup after loading the view.
         
         hideKeyboardWhenTappedAround()
+        nickTextfield.delegate = self
+        setSubmitButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,12 +35,12 @@ class Options : UIViewController {
         setThemeSegmented()
         setAvgSegmented()
         updateBackButton()
+        nickTextfield.text = ""
     }
     
     //Actions
-    @IBAction func nickChanged(_ sender: Any) {
-        let newNick = nickTextfield.text
-        defaults.set(newNick, forKey: "nick")
+    @IBAction func nickChanged(_ sender: UITextField) {
+        
     }
     
     @IBAction func avgControllValueChanged(_ sender: UISegmentedControl) {
@@ -83,7 +85,21 @@ class Options : UIViewController {
     
     @IBAction func submitAction(_ sender: UIButton) {
         let newNick = nickTextfield.text
-        defaults.set(newNick, forKey: "nick")
+        if !newNick!.isEmpty || newNick != nil {
+            defaults.set(newNick, forKey: "nick")
+            nickTextfield.text = ""
+        }
+        
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        let newNick = nickTextfield.text
+        if !newNick!.isEmpty || newNick != nil {
+            defaults.set(newNick, forKey: "nick")
+            nickTextfield.text = ""
+        }
+        
+        return false
     }
     
     //Functions
@@ -96,6 +112,9 @@ class Options : UIViewController {
         }
     }
     
+    func setSubmitButton() {
+        submitButton.layer.cornerRadius = 10
+    }
     func setAvgSegmented() {
         let savedData = defaults.string(forKey: "count")
         switch savedData {

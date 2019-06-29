@@ -26,6 +26,7 @@
 		7338E9A622C68BF500594121 /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7338E9A522C68BF500594121 /* ResultsCell.swift */; };
 		7338E9A822C6C3F800594121 /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7338E9A722C6C3F800594121 /* ImageResize.swift */; };
 		73A1D69822C798EB00915188 /* Circular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1D69722C798EB00915188 /* Circular.swift */; };
+		73A1D69A22C7F67F00915188 /* reCoulour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A1D69922C7F67F00915188 /* reCoulour.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		7338E9A522C68BF500594121 /* ResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
 		7338E9A722C6C3F800594121 /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
 		73A1D69722C798EB00915188 /* Circular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circular.swift; sourceTree = "<group>"; };
+		73A1D69922C7F67F00915188 /* reCoulour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reCoulour.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				7338E9A122C6522900594121 /* Colors.swift */,
 				7338E9A722C6C3F800594121 /* ImageResize.swift */,
 				73A1D69722C798EB00915188 /* Circular.swift */,
+				73A1D69922C7F67F00915188 /* reCoulour.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73A1D69A22C7F67F00915188 /* reCoulour.swift in Sources */,
 				7338E9A822C6C3F800594121 /* ImageResize.swift in Sources */,
 				7338E9A422C6527B00594121 /* MenuTabs.swift in Sources */,
 				730BACCA22C4AF250082FC85 /* NavigationViewController.swift in Sources */,

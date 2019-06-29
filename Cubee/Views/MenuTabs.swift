@@ -16,6 +16,9 @@ class MenuOptions {
         if let setNick = UserDefaults.standard.string(forKey: "nick"), setNick != "" {
             nickname = setNick
         }
+        else {
+            nickname = "Nickname"
+        }
         
         
         let settings : [SettingsCell] = [

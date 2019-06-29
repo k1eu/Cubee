@@ -14,6 +14,7 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
     let menuSettings = MenuOptions()
     var mainController : ViewController?
     let defaults = UserDefaults.standard
+    let colors = Colors()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let settings = menuSettings.setSettingsTabs()
@@ -81,12 +82,27 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
         let endPosition = CGRect(x: 0, y: 0, width: view.frame.width/1.85, height: view.frame.height)
         view.addSubview(menuCollectionView)
         menuCollectionView.frame = startingMenuPosition
-        menuCollectionView.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)
-        menuCollectionView.alpha = 1
-        
-        UIView.animate(withDuration: 0.5, animations: {
+        if let chosentheme = defaults.string(forKey: "theme"){
+            if chosentheme == "light" {
+                menuCollectionView.backgroundColor = colors.backgroundLight
+            }
+            else if chosentheme == "dark" {
+                menuCollectionView.backgroundColor = colors.backgroundDark
+                menuCollectionView.layer.masksToBounds = false
+                menuCollectionView.layer.shadowColor = UIColor.white.cgColor
+                menuCollectionView.layer.shadowOpacity = 0.5
+                menuCollectionView.layer.shadowOffset = CGSize(width: 5, height: 0)
+                menuCollectionView.layer.shadowRadius = 3
+            }
+        }
+    
+        menuCollectionView.alpha = 0
+            UIView.animate(withDuration: 0.5, animations: {
             self.menuCollectionView.frame = endPosition
         })
+        UIView.animate(withDuration: 0.5, delay: 0.15, options: [], animations: {
+            self.menuCollectionView.alpha = 1
+        }, completion:nil)
         isMenuOpen = true
     }
     func initializeNewController(withIdentifier : String ) {

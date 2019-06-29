@@ -126,7 +126,6 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Functions
     
-    
     func setBestTime() {
         let key = chosenCube == "piraminx" ? "timesPiraminx" : "times" + chosenCube
         let savedTimes = defaults.stringArray(forKey: key) ?? nil
