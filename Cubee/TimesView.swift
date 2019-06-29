@@ -146,7 +146,7 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
         let key = chosenCube == "piraminx" ? "timesPiraminx" : "times"+chosenCube
         let savedTimes = defaults.stringArray(forKey: key) ?? nil
         
-        lastTimeLabel.text = "Last time\n" + (savedTimes?.last! ?? "---")
+        lastTimeLabel.text = "Last time\n" + (savedTimes?.first! ?? "---")
     }
     
     func setAvg() {
@@ -156,7 +156,7 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
         var summaryOfTimes = 0
         var avgText = "AVG of last 5\n---"
         if savedTimes != nil && savedTimes!.count >= 5 {
-            for time in savedTimes!.suffix(5) {
+            for time in savedTimes!.prefix(5) {
                 //wyciaganie intow ze stringa
                 let minutes = Int(String(time.prefix(2)))
                 

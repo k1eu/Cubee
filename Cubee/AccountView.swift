@@ -71,6 +71,8 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
         if let imgURL = defaults.url(forKey: "imgurl") {
             if let imageData: NSData = NSData(contentsOf: imgURL) {
                 accountImage.image = UIImage(data: imageData as Data)
+                accountImage.layer.masksToBounds = true
+                accountImage.layer.cornerRadius = accountImage.frame.width/2
             }
             else {
                 accountImage.image = UIImage(named:defaults.string(forKey: "account")!)
