@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var startButtonOutlet: UIButton!
     @IBOutlet weak var sortingAlgorithmLabel: UILabel!
     @IBOutlet weak var stopButtonOutlet: UIButton!
+    @IBOutlet weak var refreshAlgorithmButton: UIButton!
     
     // Variables and Constants
     let stopwatch = Stopwatch()
@@ -56,6 +57,9 @@ class ViewController: UIViewController {
             }
         )
         stopwatch.start()
+        
+        startButtonOutlet.isEnabled = false
+        refreshAlgorithmButton.isEnabled = false
     }
     @IBAction func openMenu(_ sender: UIBarButtonItem) {
         
@@ -74,6 +78,10 @@ class ViewController: UIViewController {
             menuButton.image = UIImage(named: "menu")!.resizeImage(newWidth: 35)
             menu.isMenuOpen = false
         }
+    }
+    
+    @IBAction func refreshAlgorithm(_ sender: Any) {
+        sortingAlgorithmLabel.text = makeSortingAlgorithm()
     }
     
     //functions
@@ -106,7 +114,8 @@ class ViewController: UIViewController {
                 
                 saveTime(time: result!)
                 
-                sortingAlgorithmLabel.text = makeSortingAlgorithm()
+                startButtonOutlet.isEnabled = true
+                refreshAlgorithmButton.isEnabled = true
             }
         }
         if let touch = touches.first, touch.view == menu.blackView {

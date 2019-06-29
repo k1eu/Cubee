@@ -104,14 +104,18 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
         default:
             print("we've got a problem in segmented control")
         }
-    tableView.reloadData()
+        tableView.reloadData()
+        setBestTime()
+        setLastTime()
+        setAvg()
     }
     
     //Functions
     
     
     func setBestTime() {
-        let savedTimes = defaults.stringArray(forKey: "times") ?? nil
+        let key = chosenCube == "piraminx" ? "timesPiraminx" : "times" + chosenCube
+        let savedTimes = defaults.stringArray(forKey: key) ?? nil
         
         var bestTime = savedTimes?.first! ?? "---"
         
@@ -125,13 +129,15 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setLastTime() {
-        let savedTimes = defaults.stringArray(forKey: "times") ?? nil
+        let key = chosenCube == "piraminx" ? "timesPiraminx" : "times"+chosenCube
+        let savedTimes = defaults.stringArray(forKey: key) ?? nil
         
         lastTimeLabel.text = "Last time\n" + (savedTimes?.last! ?? "---")
     }
     
     func setAvg() {
-        let savedTimes = defaults.stringArray(forKey: "times") ?? nil
+        let key = chosenCube == "piraminx" ? "timesPiraminx" : "times"+chosenCube
+        let savedTimes = defaults.stringArray(forKey: key) ?? nil
         
         var summaryOfTimes = 0
         var avgText = "AVG of last 5\n---"
