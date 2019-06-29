@@ -76,7 +76,7 @@ class AccountView : UIViewController, UITableViewDelegate, UITableViewDataSource
             if let imageData: NSData = NSData(contentsOf: imgURL) {
                 accountImage.image = UIImage(data: imageData as Data)
                 accountImage.layer.masksToBounds = true
-                accountImage.layer.cornerRadius = 10
+                accountImage.layer.cornerRadius = 75
             }
             else {
                 accountImage.image = UIImage(named:"account")

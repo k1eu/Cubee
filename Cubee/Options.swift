@@ -18,6 +18,7 @@ class Options : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var avgSegmentedControll: UISegmentedControl!
     @IBOutlet weak var themeSegmentedControll: UISegmentedControl!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var nicknameLabel: UILabel!
     
     //View did load
     override func viewDidLoad() {
@@ -36,6 +37,10 @@ class Options : UIViewController, UITextFieldDelegate {
         setAvgSegmented()
         updateBackButton()
         nickTextfield.text = ""
+        setNicknameLabel()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        nicknameLabel.text = "Nickname"
     }
     
     //Actions
@@ -83,20 +88,41 @@ class Options : UIViewController, UITextFieldDelegate {
         updateBackButton()
     }
     
+    func setNicknameLabel() {
+        nicknameLabel.adjustsFontSizeToFitWidth = true
+        nicknameLabel.minimumScaleFactor = 0.5
+    }
+    
     @IBAction func submitAction(_ sender: UIButton) {
         let newNick = nickTextfield.text
-        if !newNick!.isEmpty || newNick != nil {
+        if newNick == "" {
+            print("moj nick to \(newNick)")
+            nicknameLabel.text = "Can't be nothing!"
+            nicknameLabel.textColor = .red
+            }
+        else {
             defaults.set(newNick, forKey: "nick")
             nickTextfield.text = ""
+            print("moj nowy nick to \(newNick)")
+            nicknameLabel.text = "Successfully changed nickname!"
+            nicknameLabel.textColor = .green
         }
-        
-    }
+        }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         let newNick = nickTextfield.text
-        if !newNick!.isEmpty || newNick != nil {
+        if newNick == "" {
+            print("moj nick to \(newNick)")
+            nicknameLabel.text = "Can't be nothing!"
+            nicknameLabel.textColor = .red
+        }
+        else {
             defaults.set(newNick, forKey: "nick")
             nickTextfield.text = ""
+            print("moj nowy nick to \(newNick)")
+            nicknameLabel.text = "Successfully changed nickname!"
+            nicknameLabel.textColor = .green
         }
         
         return false

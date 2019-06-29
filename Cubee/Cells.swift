@@ -30,7 +30,7 @@ class MenuCell : BaseCell {
                 }
                 else if mode == "dark" {
                     labelName.textColor = .white
-                    cellBackground.backgroundColor = colors.navbarDark
+                    cellBackground.backgroundColor = .darkGray
                 }
                 else {
                     print("prableeem")
@@ -86,7 +86,7 @@ class MenuCell : BaseCell {
                                 xd = UIImage(data: imageData as Data)!
                                 avatarView.image = xd
                                 avatarView.layer.masksToBounds = true
-                                avatarView.layer.cornerRadius = 10
+                                avatarView.layer.cornerRadius = 35
                                 
                             }
                         }
@@ -121,6 +121,7 @@ class MenuCell : BaseCell {
         labelName.minimumScaleFactor = 0.1
         labelName.numberOfLines = 0
         labelName.translatesAutoresizingMaskIntoConstraints = false
+        labelName.textAlignment = .center
         avatarView.translatesAutoresizingMaskIntoConstraints = false
         cellBackground.translatesAutoresizingMaskIntoConstraints = false
         setBackgroundConstraints()
@@ -151,8 +152,9 @@ class MenuCell : BaseCell {
         avatarView.heightAnchor.constraint(equalTo: avatarView.widthAnchor).isActive = true
         avatarView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
-        avatarView.topAnchor.constraint(equalTo: self.topAnchor, constant: 35).isActive = true
+        avatarView.topAnchor.constraint(equalTo: self.topAnchor, constant: 25).isActive = true
         avatarView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
+        
         labelName.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: 5).isActive = true
         labelName.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         labelName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25).isActive = true

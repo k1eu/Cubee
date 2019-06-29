@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var sortingAlgorithmLabel: UILabel!
     @IBOutlet weak var stopButtonOutlet: UIButton!
     @IBOutlet weak var refreshAlgorithmButton: UIButton!
+    @IBOutlet weak var refreshLabel: UILabel!
+    @IBOutlet weak var clickAnywhere: UILabel!
+    @IBOutlet weak var cubeType: UIImageView!
     
     // Variables and Constants
     let stopwatch = Stopwatch()
@@ -34,19 +37,23 @@ class ViewController: UIViewController {
     var timesCouter2x2 = 0
     var timesCouterPiraminx = 0
     let defaults = UserDefaults.standard
+    var isRunning : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sortingAlgorithmLabel.text = makeSortingAlgorithm()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        sortingAlgorithmLabel.text = makeSortingAlgorithm()
         updateUI()
         updateNavUI()
+        updateCube()
         setStartButton()
         setMenuButton()
         updateRefreshButton()
+        setRefreshLabel()
     }
 
     //Actions
@@ -59,8 +66,7 @@ class ViewController: UIViewController {
         )
         stopwatch.start()
         
-        startButtonOutlet.isEnabled = false
-        refreshAlgorithmButton.isEnabled = false
+        startOptions()
     }
     @IBAction func openMenu(_ sender: UIBarButtonItem) {
         
@@ -117,7 +123,22 @@ class ViewController: UIViewController {
         menuButton.image = UIImage(named: "menu")!.resizeImage(newWidth: 35)
         updateBarItem(sender: menuButton)
     }
-
+    
+    func updateCube() {
+        if let type = defaults.string(forKey: "cubeType"){
+            if type == "2x2" {
+                cubeType.image = UIImage(named: "cube2")
+            }
+            else if type == "3x3" {
+                cubeType.image = UIImage(named: "cube1")
+            }
+            else if type == "Piraminx"{
+            cubeType.image = UIImage(named:"cube3")
+            }
+        }
+    }
+        
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
         if stopwatch.isRunning {
@@ -128,8 +149,7 @@ class ViewController: UIViewController {
                 
                 saveTime(time: result!)
                 
-                startButtonOutlet.isEnabled = true
-                refreshAlgorithmButton.isEnabled = true
+                endOptions()
             }
         }
         if let touch = touches.first, touch.view == menu.blackView {
@@ -145,6 +165,33 @@ class ViewController: UIViewController {
     func setStartButton() {
         startButtonOutlet.layer.cornerRadius = 10
         startButtonOutlet.alpha = 0.8
+    }
+    
+    func setRefreshLabel() {
+        if let theme = defaults.string(forKey: "theme") {
+            if theme == "light" {
+                refreshLabel.textColor = .gray
+            }
+            else if theme == "dark" {
+                refreshLabel.textColor = .lightGray
+            }
+        }
+    }
+    
+    func startOptions() {
+        refreshAlgorithmButton.isHidden = true
+        refreshLabel.isHidden = true
+        sortingAlgorithmLabel.isHidden = true
+        clickAnywhere.isHidden = false
+        startButtonOutlet.isHidden = true
+        
+    }
+    func endOptions() {
+        refreshLabel.isHidden = false
+        refreshAlgorithmButton.isHidden = false
+        sortingAlgorithmLabel.isHidden = false
+        clickAnywhere.isHidden = true
+        startButtonOutlet.isHidden = false
     }
     
     func saveTime(time: String) {

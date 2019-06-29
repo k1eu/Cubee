@@ -83,6 +83,9 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
             if let threeByThree = defaults.stringArray(forKey: "times3x3") {
                 cell.timeLabel.text = threeByThree[indexPath.row]
             }
+            else {
+                cell.timeLabel.text = "You have no times in 3x3"
+            }
         }
         else if chosenCube == "2x2" {
             if let twoByTwo = defaults.stringArray(forKey: "times2x2") {
