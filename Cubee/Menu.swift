@@ -14,6 +14,7 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
     let menuSettings = MenuOptions()
     var mainController : ViewController?
     let defaults = UserDefaults.standard
+    let colors = Colors()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let settings = menuSettings.setSettingsTabs()
@@ -40,14 +41,17 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
         case "cube1":
             defaults.set("3x3", forKey: "cubeType")
             mainController?.sortingAlgorithmLabel.text = mainController?.makeSortingAlgorithm()
+            mainController?.cubeType.image = UIImage(named: "cube1")
             initializeCubeChange()
         case "cube2":
             defaults.set("2x2", forKey: "cubeType")
             mainController?.sortingAlgorithmLabel.text = mainController?.makeSortingAlgorithm()
+            mainController?.cubeType.image = UIImage(named: "cube2")
             initializeCubeChange()
         case "cube3":
             defaults.set("Piraminx", forKey: "cubeType")
             mainController?.sortingAlgorithmLabel.text = mainController?.makeSortingAlgorithm()
+            mainController?.cubeType.image = UIImage(named: "cube3")
             initializeCubeChange()
         case "options":
             initializeNewController(withIdentifier: "options")
@@ -81,12 +85,32 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
         let endPosition = CGRect(x: 0, y: 0, width: view.frame.width/1.85, height: view.frame.height)
         view.addSubview(menuCollectionView)
         menuCollectionView.frame = startingMenuPosition
-        menuCollectionView.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)
-        menuCollectionView.alpha = 1
-        
-        UIView.animate(withDuration: 0.5, animations: {
+        if let chosentheme = defaults.string(forKey: "theme"){
+            if chosentheme == "light" {
+                menuCollectionView.backgroundColor = colors.buttonBgLight
+                menuCollectionView.layer.masksToBounds = false
+                menuCollectionView.layer.shadowColor = UIColor.black.cgColor
+                menuCollectionView.layer.shadowOpacity = 0.5
+                menuCollectionView.layer.shadowOffset = CGSize(width: 5, height: 0)
+                menuCollectionView.layer.shadowRadius = 3
+            }
+            else if chosentheme == "dark" {
+                menuCollectionView.backgroundColor = colors.navbarDark
+                menuCollectionView.layer.masksToBounds = false
+                menuCollectionView.layer.shadowColor = UIColor.white.cgColor
+                menuCollectionView.layer.shadowOpacity = 0.5
+                menuCollectionView.layer.shadowOffset = CGSize(width: 5, height: 0)
+                menuCollectionView.layer.shadowRadius = 3
+            }
+        }
+    
+        menuCollectionView.alpha = 0
+            UIView.animate(withDuration: 0.5, animations: {
             self.menuCollectionView.frame = endPosition
         })
+        UIView.animate(withDuration: 0.5, delay: 0.15, options: [], animations: {
+            self.menuCollectionView.alpha = 1
+        }, completion:nil)
         isMenuOpen = true
     }
     func initializeNewController(withIdentifier : String ) {
@@ -101,6 +125,7 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
                 self.mainController?.performSegue(withIdentifier: withIdentifier, sender: self.mainController.self)
             })
             isMenuOpen = false
+            
         }
     }
     func initializeCubeChange() {
@@ -115,6 +140,7 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
                 print("cube has been changed")
             })
             isMenuOpen = false
+            mainController?.timerLabel.text = "00:00:00"
         }
     }
     

@@ -73,7 +73,7 @@ extension UIViewController {
         print(buttons)
         for button in buttons {
             if chosenMode == "light" {
-                button.backgroundColor = .none
+                button.backgroundColor = colors.buttonBgLight
                 button.setTitleColor(.black, for: .normal)
             }
             
@@ -88,7 +88,7 @@ extension UIViewController {
         print(buttons)
         for segmented in segmenteds {
             if chosenMode == "light" {
-                segmented.tintColor = colors.ourBlue
+                segmented.tintColor = .black
             }
             
             if chosenMode == "dark" {

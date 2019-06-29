@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Options : UIViewController {
+class Options : UIViewController, UITextFieldDelegate {
     
     //Variables and Constants
     let defaults = UserDefaults.standard
@@ -18,6 +18,7 @@ class Options : UIViewController {
     @IBOutlet weak var avgSegmentedControll: UISegmentedControl!
     @IBOutlet weak var themeSegmentedControll: UISegmentedControl!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var nicknameLabel: UILabel!
     
     //View did load
     override func viewDidLoad() {
@@ -25,6 +26,8 @@ class Options : UIViewController {
         // Do any additional setup after loading the view.
         
         hideKeyboardWhenTappedAround()
+        nickTextfield.delegate = self
+        setSubmitButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,12 +36,16 @@ class Options : UIViewController {
         setThemeSegmented()
         setAvgSegmented()
         updateBackButton()
+        nickTextfield.text = ""
+        setNicknameLabel()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        nicknameLabel.text = "Nickname"
     }
     
     //Actions
-    @IBAction func nickChanged(_ sender: Any) {
-        let newNick = nickTextfield.text
-        defaults.set(newNick, forKey: "nick")
+    @IBAction func nickChanged(_ sender: UITextField) {
+        
     }
     
     @IBAction func avgControllValueChanged(_ sender: UISegmentedControl) {
@@ -81,9 +88,44 @@ class Options : UIViewController {
         updateBackButton()
     }
     
+    func setNicknameLabel() {
+        nicknameLabel.adjustsFontSizeToFitWidth = true
+        nicknameLabel.minimumScaleFactor = 0.5
+    }
+    
     @IBAction func submitAction(_ sender: UIButton) {
         let newNick = nickTextfield.text
-        defaults.set(newNick, forKey: "nick")
+        if newNick == "" {
+            print("moj nick to \(newNick)")
+            nicknameLabel.text = "Can't be nothing!"
+            nicknameLabel.textColor = .red
+            }
+        else {
+            defaults.set(newNick, forKey: "nick")
+            nickTextfield.text = ""
+            print("moj nowy nick to \(newNick)")
+            nicknameLabel.text = "Successfully changed nickname!"
+            nicknameLabel.textColor = .green
+        }
+        }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        let newNick = nickTextfield.text
+        if newNick == "" {
+            print("moj nick to \(newNick)")
+            nicknameLabel.text = "Can't be nothing!"
+            nicknameLabel.textColor = .red
+        }
+        else {
+            defaults.set(newNick, forKey: "nick")
+            nickTextfield.text = ""
+            print("moj nowy nick to \(newNick)")
+            nicknameLabel.text = "Successfully changed nickname!"
+            nicknameLabel.textColor = .green
+        }
+        
+        return false
     }
     
     //Functions
@@ -96,6 +138,9 @@ class Options : UIViewController {
         }
     }
     
+    func setSubmitButton() {
+        submitButton.layer.cornerRadius = 10
+    }
     func setAvgSegmented() {
         let savedData = defaults.string(forKey: "count")
         switch savedData {

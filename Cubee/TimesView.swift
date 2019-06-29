@@ -59,6 +59,20 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
                 howManyRows = piraminx.count
             }
         }
+        
+        let count = defaults.string(forKey: "count")
+        switch count {
+        case "5":
+            howManyRows = howManyRows > 5 ? 5 : howManyRows
+        case "10":
+            howManyRows = howManyRows > 10 ? 10 : howManyRows
+        case "15":
+            howManyRows = howManyRows > 15 ? 15 : howManyRows
+        case "20":
+            howManyRows = howManyRows > 20 ? 20 : howManyRows
+        default:
+            print("Error: You dont have other choices")
+        }
         return howManyRows
     }
     
@@ -68,6 +82,9 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
         if chosenCube == "3x3" {
             if let threeByThree = defaults.stringArray(forKey: "times3x3") {
                 cell.timeLabel.text = threeByThree[indexPath.row]
+            }
+            else {
+                cell.timeLabel.text = "You have no times in 3x3"
             }
         }
         else if chosenCube == "2x2" {
@@ -104,14 +121,17 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
         default:
             print("we've got a problem in segmented control")
         }
-    tableView.reloadData()
+        tableView.reloadData()
+        setBestTime()
+        setLastTime()
+        setAvg()
     }
     
     //Functions
     
-    
     func setBestTime() {
-        let savedTimes = defaults.stringArray(forKey: "times") ?? nil
+        let key = chosenCube == "piraminx" ? "timesPiraminx" : "times" + chosenCube
+        let savedTimes = defaults.stringArray(forKey: key) ?? nil
         
         var bestTime = savedTimes?.first! ?? "---"
         
@@ -125,18 +145,20 @@ class TimesView : UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setLastTime() {
-        let savedTimes = defaults.stringArray(forKey: "times") ?? nil
+        let key = chosenCube == "piraminx" ? "timesPiraminx" : "times"+chosenCube
+        let savedTimes = defaults.stringArray(forKey: key) ?? nil
         
-        lastTimeLabel.text = "Last time\n" + (savedTimes?.last! ?? "---")
+        lastTimeLabel.text = "Last time\n" + (savedTimes?.first! ?? "---")
     }
     
     func setAvg() {
-        let savedTimes = defaults.stringArray(forKey: "times") ?? nil
+        let key = chosenCube == "piraminx" ? "timesPiraminx" : "times"+chosenCube
+        let savedTimes = defaults.stringArray(forKey: key) ?? nil
         
         var summaryOfTimes = 0
         var avgText = "AVG of last 5\n---"
         if savedTimes != nil && savedTimes!.count >= 5 {
-            for time in savedTimes!.suffix(5) {
+            for time in savedTimes!.prefix(5) {
                 //wyciaganie intow ze stringa
                 let minutes = Int(String(time.prefix(2)))
                 

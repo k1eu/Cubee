@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var startButtonOutlet: UIButton!
     @IBOutlet weak var sortingAlgorithmLabel: UILabel!
     @IBOutlet weak var stopButtonOutlet: UIButton!
+    @IBOutlet weak var refreshAlgorithmButton: UIButton!
+    @IBOutlet weak var refreshLabel: UILabel!
+    @IBOutlet weak var clickAnywhere: UILabel!
+    @IBOutlet weak var cubeType: UIImageView!
     
     // Variables and Constants
     let stopwatch = Stopwatch()
@@ -33,18 +37,23 @@ class ViewController: UIViewController {
     var timesCouter2x2 = 0
     var timesCouterPiraminx = 0
     let defaults = UserDefaults.standard
+    var isRunning : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sortingAlgorithmLabel.text = makeSortingAlgorithm()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        sortingAlgorithmLabel.text = makeSortingAlgorithm()
         updateUI()
         updateNavUI()
+        updateCube()
         setStartButton()
         setMenuButton()
+        updateRefreshButton()
+        setRefreshLabel()
     }
 
     //Actions
@@ -56,6 +65,8 @@ class ViewController: UIViewController {
             }
         )
         stopwatch.start()
+        
+        startOptions()
     }
     @IBAction func openMenu(_ sender: UIBarButtonItem) {
         
@@ -76,6 +87,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func refreshAlgorithm(_ sender: Any) {
+        sortingAlgorithmLabel.text = makeSortingAlgorithm()
+    }
+    
     //functions
     func updateLabel(_ timer : Timer) {
         if stopwatch.isRunning {
@@ -90,12 +105,40 @@ class ViewController: UIViewController {
            timer.invalidate()
         }
     }
+    func updateRefreshButton() {
+        refreshAlgorithmButton.backgroundColor = .clear
+        if let chosen = defaults.string(forKey: "theme") {
+            if chosen == "light" {
+                let xd = refreshAlgorithmButton.imageView?.image?.imageWithColor(color1: .black)
+                refreshAlgorithmButton.imageView?.image = xd
+            }
+            else {
+                let xd = refreshAlgorithmButton.imageView?.image?.imageWithColor(color1: .white)
+                refreshAlgorithmButton.imageView?.image = xd
+            }
+        }
+    }
     
     func setMenuButton() {
         menuButton.image = UIImage(named: "menu")!.resizeImage(newWidth: 35)
         updateBarItem(sender: menuButton)
     }
-
+    
+    func updateCube() {
+        if let type = defaults.string(forKey: "cubeType"){
+            if type == "2x2" {
+                cubeType.image = UIImage(named: "cube2")
+            }
+            else if type == "3x3" {
+                cubeType.image = UIImage(named: "cube1")
+            }
+            else if type == "Piraminx"{
+            cubeType.image = UIImage(named:"cube3")
+            }
+        }
+    }
+        
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
         if stopwatch.isRunning {
@@ -106,7 +149,7 @@ class ViewController: UIViewController {
                 
                 saveTime(time: result!)
                 
-                sortingAlgorithmLabel.text = makeSortingAlgorithm()
+                endOptions()
             }
         }
         if let touch = touches.first, touch.view == menu.blackView {
@@ -115,12 +158,40 @@ class ViewController: UIViewController {
                 self.menu.menuCollectionView.frame = startingMenuPosition
             })
             menu.isMenuOpen = false
+            menuButton.image = UIImage(named: "menu")!.resizeImage(newWidth: 35)
         }
     }
     
     func setStartButton() {
         startButtonOutlet.layer.cornerRadius = 10
         startButtonOutlet.alpha = 0.8
+    }
+    
+    func setRefreshLabel() {
+        if let theme = defaults.string(forKey: "theme") {
+            if theme == "light" {
+                refreshLabel.textColor = .gray
+            }
+            else if theme == "dark" {
+                refreshLabel.textColor = .lightGray
+            }
+        }
+    }
+    
+    func startOptions() {
+        refreshAlgorithmButton.isHidden = true
+        refreshLabel.isHidden = true
+        sortingAlgorithmLabel.isHidden = true
+        clickAnywhere.isHidden = false
+        startButtonOutlet.isHidden = true
+        
+    }
+    func endOptions() {
+        refreshLabel.isHidden = false
+        refreshAlgorithmButton.isHidden = false
+        sortingAlgorithmLabel.isHidden = false
+        clickAnywhere.isHidden = true
+        startButtonOutlet.isHidden = false
     }
     
     func saveTime(time: String) {
