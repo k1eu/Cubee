@@ -141,16 +141,11 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
             })
             isMenuOpen = false
             mainController?.timerLabel.text = "00:00:00"
-            let newButton = UIButton(type: .custom)
-            newButton.setImage(UIImage(named: "menu"), for: .normal)
-            newButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-            let menuBarItem = UIBarButtonItem(customView: newButton)
-            mainController?.navigationItem.leftBarButtonItem = menuBarItem
-        mainController?.navigationItem.leftBarButtonItem?.customView?.widthAnchor.constraint(equalToConstant: 30).isActive = true
-            mainController?.navigationItem.leftBarButtonItem?.customView?.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            mainController?.setMenuButton()
             
         }
     }
+   
     
     override init() {
         super.init()

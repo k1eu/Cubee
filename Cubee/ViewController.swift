@@ -101,22 +101,34 @@ class ViewController: UIViewController {
     }
     
     func setMenuButton() {
-        
         menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 30, height: 30)
-        menuBtn.setImage(UIImage(named:"menu"), for: .normal)
+        menuBtn.setImage(UIImage(named: "menu"), for: .normal)
+        setMenuMode()
         menuBtn.addTarget(self, action: #selector(clickedMenu), for: UIControl.Event.touchUpInside)
         let menuBarItem = UIBarButtonItem(customView: menuBtn)
-        
         self.navigationItem.leftBarButtonItem = menuBarItem
         self.navigationItem.leftBarButtonItem?.customView?.widthAnchor.constraint(equalToConstant: 30).isActive = true
         self.navigationItem.leftBarButtonItem?.customView?.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        updateBarItem(sender: self.navigationItem.leftBarButtonItem!)
+    }
+    
+    func setMenuMode() {
+        let image = menuBtn.image(for: .normal)
+        if let theme = defaults.string(forKey: "theme") {
+            switch theme {
+            case "light" :
+                menuBtn.setImage(image, for: .normal)
+            case "dark" :
+                menuBtn.setImage(image!.imageWithColor(color1: .white), for: .normal)
+            default:
+                print("no default")
+            }
+        }
     }
     
     @objc func clickedMenu() {
         if !menu.isMenuOpen {
             menuBtn.setImage(UIImage(named: "close"), for: .normal)
+            setMenuMode()
             let menuBarIteam = UIBarButtonItem(customView: menuBtn)
             self.navigationItem.leftBarButtonItem = menuBarIteam
             menu.darkenBackground(view:view)
@@ -125,6 +137,7 @@ class ViewController: UIViewController {
         }
         else {
             menuBtn.setImage(UIImage(named: "menu"), for: .normal)
+            setMenuMode()
             let menuBarIteam = UIBarButtonItem(customView: menuBtn)
             let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
             UIView.animate(withDuration: 0.5, animations: {
@@ -171,8 +184,12 @@ class ViewController: UIViewController {
             })
             menu.isMenuOpen = false
             menuBtn.setImage(UIImage(named: "menu"), for: .normal)
+            setMenuMode()
             let menuBarIteam = UIBarButtonItem(customView: menuBtn)
             self.navigationItem.leftBarButtonItem = menuBarIteam
+        }
+        if let touch = touches.first, touch.view == self.navigationItem.leftBarButtonItem?.customView {
+            print("shit")
         }
     }
     
