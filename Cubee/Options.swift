@@ -12,6 +12,7 @@ class Options : UIViewController, UITextFieldDelegate {
     
     //Variables and Constants
     let defaults = UserDefaults.standard
+    let colors = Colors()
     
     //Outlets
     @IBOutlet weak var nickTextfield: UITextField!
@@ -91,7 +92,7 @@ class Options : UIViewController, UITextFieldDelegate {
     func setNicknameLabel() {
         nicknameLabel.adjustsFontSizeToFitWidth = true
         nicknameLabel.minimumScaleFactor = 0.5
-        nickTextfield.backgroundColor = .gray
+        nickTextfield.backgroundColor = colors.buttonBgLight
     }
     
     @IBAction func submitAction(_ sender: UIButton) {

@@ -238,14 +238,23 @@
                                     <constraint firstItem="Ksk-OP-gOn" firstAttribute="leading" secondItem="4yS-BJ-XKz" secondAttribute="leading" constant="5" id="yfo-2d-ha4"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© created by Definitely not Devs™ 2018 ©" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6FG-Gd-b3M">
+                                <rect key="frame" x="20" y="767.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="j1Y-WT-V1y" firstAttribute="trailing" secondItem="6FG-Gd-b3M" secondAttribute="trailing" constant="20" id="07J-gO-9O7"/>
                             <constraint firstItem="BkG-0W-k7x" firstAttribute="leading" secondItem="j1Y-WT-V1y" secondAttribute="leading" constant="25" id="4ZL-SY-kFc"/>
                             <constraint firstItem="BkG-0W-k7x" firstAttribute="top" secondItem="j1Y-WT-V1y" secondAttribute="top" constant="40" id="DCY-zs-qlA"/>
                             <constraint firstItem="pmm-Py-zZG" firstAttribute="leading" secondItem="j1Y-WT-V1y" secondAttribute="leading" constant="25" id="FDj-jj-Xq1"/>
                             <constraint firstItem="j1Y-WT-V1y" firstAttribute="trailing" secondItem="BkG-0W-k7x" secondAttribute="trailing" constant="25" id="K9c-Nv-LRh"/>
                             <constraint firstItem="j1Y-WT-V1y" firstAttribute="trailing" secondItem="4yS-BJ-XKz" secondAttribute="trailing" constant="25" id="MrV-ox-dbV"/>
+                            <constraint firstItem="6FG-Gd-b3M" firstAttribute="leading" secondItem="j1Y-WT-V1y" secondAttribute="leading" constant="20" id="OzD-a7-VPv"/>
+                            <constraint firstAttribute="bottom" secondItem="6FG-Gd-b3M" secondAttribute="bottom" constant="20" id="Px6-b8-eSZ"/>
                             <constraint firstItem="pmm-Py-zZG" firstAttribute="centerX" secondItem="xBg-iJ-1OF" secondAttribute="centerX" id="QSf-Rs-ymZ"/>
                             <constraint firstItem="4yS-BJ-XKz" firstAttribute="centerX" secondItem="xBg-iJ-1OF" secondAttribute="centerX" id="Spk-Xw-2cD"/>
                             <constraint firstItem="4yS-BJ-XKz" firstAttribute="top" secondItem="pmm-Py-zZG" secondAttribute="bottom" constant="30" id="UGN-m3-kCM"/>
