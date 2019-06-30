@@ -39,5 +39,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>${PRODUCT_NAME} needs to use Your photo library</string>
 </dict>
 </plist>
