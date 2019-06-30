@@ -12,7 +12,6 @@ class ResultsCell: UITableViewCell {
     let insideView : UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -32,10 +31,10 @@ class ResultsCell: UITableViewCell {
         self.selectionStyle = .none
         
         NSLayoutConstraint.activate([
-            insideView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            insideView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
-            insideView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-            insideView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
+            insideView.topAnchor.constraint(equalTo: self.topAnchor),
+            insideView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            insideView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            insideView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             timeLabel.centerXAnchor.constraint(equalTo: insideView.centerXAnchor),
             timeLabel.centerYAnchor.constraint(equalTo: insideView.centerYAnchor)
 

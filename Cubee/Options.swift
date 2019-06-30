@@ -91,6 +91,7 @@ class Options : UIViewController, UITextFieldDelegate {
     func setNicknameLabel() {
         nicknameLabel.adjustsFontSizeToFitWidth = true
         nicknameLabel.minimumScaleFactor = 0.5
+        nickTextfield.backgroundColor = .gray
     }
     
     @IBAction func submitAction(_ sender: UIButton) {

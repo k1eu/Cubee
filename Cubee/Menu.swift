@@ -87,20 +87,20 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
         menuCollectionView.frame = startingMenuPosition
         if let chosentheme = defaults.string(forKey: "theme"){
             if chosentheme == "light" {
-                menuCollectionView.backgroundColor = colors.buttonBgLight
+                menuCollectionView.backgroundColor = colors.menuBgLight
                 menuCollectionView.layer.masksToBounds = false
                 menuCollectionView.layer.shadowColor = UIColor.black.cgColor
                 menuCollectionView.layer.shadowOpacity = 0.5
-                menuCollectionView.layer.shadowOffset = CGSize(width: 5, height: 0)
-                menuCollectionView.layer.shadowRadius = 3
+                menuCollectionView.layer.shadowOffset = CGSize(width: 4, height: 0)
+                menuCollectionView.layer.shadowRadius = 2
             }
             else if chosentheme == "dark" {
-                menuCollectionView.backgroundColor = colors.navbarDark
+                menuCollectionView.backgroundColor = colors.menuBgDark
                 menuCollectionView.layer.masksToBounds = false
                 menuCollectionView.layer.shadowColor = UIColor.white.cgColor
                 menuCollectionView.layer.shadowOpacity = 0.5
-                menuCollectionView.layer.shadowOffset = CGSize(width: 5, height: 0)
-                menuCollectionView.layer.shadowRadius = 3
+                menuCollectionView.layer.shadowOffset = CGSize(width: 4, height: 0)
+                menuCollectionView.layer.shadowRadius = 2
             }
         }
     

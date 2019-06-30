@@ -86,7 +86,9 @@ class MenuCell : BaseCell {
                                 xd = UIImage(data: imageData as Data)!
                                 avatarView.image = xd
                                 avatarView.layer.masksToBounds = true
+                                avatarView.contentMode = .scaleAspectFill
                                 avatarView.layer.cornerRadius = 35
+                                
                                 
                             }
                         }
