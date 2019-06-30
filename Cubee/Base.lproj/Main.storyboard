@@ -111,18 +111,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cubee" id="fBD-fc-SEQ">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="W43-sY-Ape">
-                            <connections>
-                                <action selector="openMenu:" destination="BYZ-38-t0r" id="Wp4-qB-CLV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Cubee" id="fBD-fc-SEQ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="clickAnywhere" destination="kYH-wa-No2" id="mFZ-uD-WlY"/>
                         <outlet property="cubeType" destination="YNp-HS-qw2" id="xb4-fm-ePx"/>
-                        <outlet property="menuButton" destination="W43-sY-Ape" id="HeQ-WU-LWM"/>
                         <outlet property="refreshAlgorithmButton" destination="Fzw-1p-RdF" id="wbr-4k-AL8"/>
                         <outlet property="refreshLabel" destination="c5i-4w-oY4" id="UYz-og-SyG"/>
                         <outlet property="sortingAlgorithmLabel" destination="QIU-VH-ECh" id="ZKU-fe-SSo"/>

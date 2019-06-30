@@ -12,17 +12,16 @@ import Foundation
 class ViewController: UIViewController {
 
     //Outlets
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startButtonOutlet: UIButton!
     @IBOutlet weak var sortingAlgorithmLabel: UILabel!
-    @IBOutlet weak var stopButtonOutlet: UIButton!
     @IBOutlet weak var refreshAlgorithmButton: UIButton!
     @IBOutlet weak var refreshLabel: UILabel!
     @IBOutlet weak var clickAnywhere: UILabel!
     @IBOutlet weak var cubeType: UIImageView!
     
     // Variables and Constants
+    let menuBtn = UIButton(type: .custom)
     let stopwatch = Stopwatch()
     let sortingInstance = Sorting()
     lazy var menu : Menu = {
@@ -68,25 +67,7 @@ class ViewController: UIViewController {
         
         startOptions()
     }
-    @IBAction func openMenu(_ sender: UIBarButtonItem) {
-        
-        if !menu.isMenuOpen {
-            menu.darkenBackground(view:view)
-            menu.showMenu(view:view)
-            menuButton.image = UIImage(named: "close")!.resizeImage(newWidth: 35)
-            menu.isMenuOpen = true
-        }
-        else {
-            let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
-            UIView.animate(withDuration: 0.5, animations: {
-                self.menu.blackView.alpha = 0
-                self.menu.menuCollectionView.frame = startingMenuPosition
-            })
-            menuButton.image = UIImage(named: "menu")!.resizeImage(newWidth: 35)
-            menu.isMenuOpen = false
-        }
-    }
-    
+
     @IBAction func refreshAlgorithm(_ sender: Any) {
         sortingAlgorithmLabel.text = makeSortingAlgorithm()
     }
@@ -120,8 +101,39 @@ class ViewController: UIViewController {
     }
     
     func setMenuButton() {
-        menuButton.image = UIImage(named: "menu")!.resizeImage(newWidth: 35)
-        updateBarItem(sender: menuButton)
+        
+        menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 30, height: 30)
+        menuBtn.setImage(UIImage(named:"menu"), for: .normal)
+        menuBtn.addTarget(self, action: #selector(clickedMenu), for: UIControl.Event.touchUpInside)
+        let menuBarItem = UIBarButtonItem(customView: menuBtn)
+        
+        self.navigationItem.leftBarButtonItem = menuBarItem
+        self.navigationItem.leftBarButtonItem?.customView?.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        self.navigationItem.leftBarButtonItem?.customView?.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        updateBarItem(sender: self.navigationItem.leftBarButtonItem!)
+    }
+    
+    @objc func clickedMenu() {
+        if !menu.isMenuOpen {
+            menuBtn.setImage(UIImage(named: "close"), for: .normal)
+            let menuBarIteam = UIBarButtonItem(customView: menuBtn)
+            self.navigationItem.leftBarButtonItem = menuBarIteam
+            menu.darkenBackground(view:view)
+            menu.showMenu(view:view)
+            menu.isMenuOpen = true
+        }
+        else {
+            menuBtn.setImage(UIImage(named: "menu"), for: .normal)
+            let menuBarIteam = UIBarButtonItem(customView: menuBtn)
+            let startingMenuPosition = CGRect(x: 0, y: 0, width: 0, height: view.frame.height)
+            UIView.animate(withDuration: 0.5, animations: {
+                self.menu.blackView.alpha = 0
+                self.menu.menuCollectionView.frame = startingMenuPosition
+            })
+            self.navigationItem.leftBarButtonItem = menuBarIteam
+            menu.isMenuOpen = false
+        }
     }
     
     func updateCube() {
@@ -158,7 +170,9 @@ class ViewController: UIViewController {
                 self.menu.menuCollectionView.frame = startingMenuPosition
             })
             menu.isMenuOpen = false
-            menuButton.image = UIImage(named: "menu")!.resizeImage(newWidth: 35)
+            menuBtn.setImage(UIImage(named: "menu"), for: .normal)
+            let menuBarIteam = UIBarButtonItem(customView: menuBtn)
+            self.navigationItem.leftBarButtonItem = menuBarIteam
         }
     }
     

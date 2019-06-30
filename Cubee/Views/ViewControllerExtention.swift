@@ -21,6 +21,9 @@ extension UIViewController {
     }
     
     func updateBarItem(sender:UIBarButtonItem){
+        let menuBtn = UIButton(type: .custom)
+        menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 30, height: 30)
+        
         //mode
         let chosenMode = UserDefaults.standard.string(forKey: "theme")
             if chosenMode == "light"{
