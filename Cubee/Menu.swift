@@ -142,6 +142,7 @@ class Menu : UICollectionViewFlowLayout,UICollectionViewDelegateFlowLayout, UICo
             isMenuOpen = false
             mainController?.timerLabel.text = "00:00:00"
             mainController?.setMenuButton()
+            mainController?.setStartButton()
             
         }
     }
