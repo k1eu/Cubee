@@ -175,6 +175,7 @@ class ViewController: UIViewController {
                 saveTime(time: result!)
                 
                 endOptions()
+                setStartButton()
             }
         }
         if let touch = touches.first, touch.view == menu.blackView {
@@ -196,6 +197,15 @@ class ViewController: UIViewController {
     func setStartButton() {
         startButtonOutlet.layer.cornerRadius = 10
         startButtonOutlet.alpha = 0.8
+        startButtonOutlet.titleLabel?.numberOfLines = 1
+        startButtonOutlet.translatesAutoresizingMaskIntoConstraints = false
+        startButtonOutlet.titleLabel?.frame = startButtonOutlet.frame
+        if timerLabel.text != "00:00:00" {
+            startButtonOutlet.setTitle("Restart", for: .normal)
+        }
+        else {
+            startButtonOutlet.setTitle("Start", for: .normal)
+        }
     }
     
     func setRefreshLabel() {
