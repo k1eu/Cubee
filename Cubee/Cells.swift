@@ -80,11 +80,11 @@ class MenuCell : BaseCell {
                 else {
                     if image == "account" {
                         setAccountConstraints()
-                        var xd = UIImage()
+                        var savedImage = UIImage()
                         if let imgURL = defaults.url(forKey: "imgurl") {
                             if let imageData: NSData = NSData(contentsOf: imgURL) {
-                                xd = UIImage(data: imageData as Data)!
-                                avatarView.image = xd
+                                savedImage = UIImage(data: imageData as Data)!
+                                avatarView.image = savedImage
                                 avatarView.layer.masksToBounds = true
                                 avatarView.contentMode = .scaleAspectFill
                                 avatarView.layer.cornerRadius = 35
