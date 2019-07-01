@@ -129,10 +129,14 @@ extension UIViewController {
     func getLabelsInView(view: UIView) -> [UILabel] {
         var results = [UILabel]()
         
-        for subview in view.subviews as [UIView] {
+        for subview in view.subviews {
             if let labelView = subview as? UILabel {
                 results += [labelView]
-            } else {
+            }
+            else if let table = subview as? UITableView {
+                print("megaPuste")
+            }
+            else {
                 results += getLabelsInView(view: subview)
             }
         }
