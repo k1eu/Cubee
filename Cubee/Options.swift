@@ -20,6 +20,7 @@ class Options : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var themeSegmentedControll: UISegmentedControl!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var nicknameLabel: UILabel!
+    @IBOutlet weak var versionLabel: UILabel!
     
     //View did load
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class Options : UIViewController, UITextFieldDelegate {
         updateBackButton()
         nickTextfield.text = ""
         setNicknameLabel()
+        setVersionLabel()
     }
     override func viewWillDisappear(_ animated: Bool) {
         nicknameLabel.text = "Nickname"
@@ -87,6 +89,7 @@ class Options : UIViewController, UITextFieldDelegate {
         updateUI()
         updateNavUI()
         updateBackButton()
+        setVersionLabel()
     }
     
     func setNicknameLabel() {
@@ -143,6 +146,7 @@ class Options : UIViewController, UITextFieldDelegate {
     func setSubmitButton() {
         submitButton.layer.cornerRadius = 10
     }
+    
     func setAvgSegmented() {
         let savedData = defaults.string(forKey: "count")
         switch savedData {
@@ -156,6 +160,27 @@ class Options : UIViewController, UITextFieldDelegate {
             avgSegmentedControll.selectedSegmentIndex = 3
         default:
             print("Error: You dont have other choices")
+        }
+    }
+    
+    func setVersionLabel() {
+        let versionObject: AnyObject? = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as AnyObject?
+        
+        let versionString = versionObject as! String
+        
+        if versionString != "" {
+            versionLabel.text = versionString
+        } else {
+            versionLabel.text = "Error"
+        }
+        
+        if let theme = defaults.string(forKey: "theme") {
+            if theme == "light" {
+                versionLabel.textColor = .gray
+            }
+            else if theme == "dark" {
+                versionLabel.textColor = .lightGray
+            }
         }
     }
 }

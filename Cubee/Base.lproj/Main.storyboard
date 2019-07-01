@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mog-Nt-JaP">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mog-Nt-JaP">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -177,7 +179,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pmm-Py-zZG">
-                                <rect key="frame" x="25" y="222.5" width="364" height="82.5"/>
+                                <rect key="frame" x="25" y="222.5" width="364" height="79.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storing results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHF-1b-TMJ">
                                         <rect key="frame" x="102" y="0.0" width="160.5" height="31.5"/>
@@ -186,7 +188,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tig-GS-7sI">
-                                        <rect key="frame" x="5" y="51.5" width="354" height="32"/>
+                                        <rect key="frame" x="5" y="51.5" width="354" height="29"/>
                                         <segments>
                                             <segment title="5 results"/>
                                             <segment title="10 results"/>
@@ -204,7 +206,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4yS-BJ-XKz">
-                                <rect key="frame" x="25" y="335" width="364" height="91.5"/>
+                                <rect key="frame" x="25" y="332" width="364" height="91.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38p-xB-oVj">
                                         <rect key="frame" x="143" y="0.0" width="78.5" height="31.5"/>
@@ -237,6 +239,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aP5-6W-h5C">
+                                <rect key="frame" x="189" y="737" width="36.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -249,10 +257,12 @@
                             <constraint firstItem="6FG-Gd-b3M" firstAttribute="leading" secondItem="j1Y-WT-V1y" secondAttribute="leading" constant="20" id="OzD-a7-VPv"/>
                             <constraint firstAttribute="bottom" secondItem="6FG-Gd-b3M" secondAttribute="bottom" constant="20" id="Px6-b8-eSZ"/>
                             <constraint firstItem="pmm-Py-zZG" firstAttribute="centerX" secondItem="xBg-iJ-1OF" secondAttribute="centerX" id="QSf-Rs-ymZ"/>
+                            <constraint firstItem="aP5-6W-h5C" firstAttribute="centerX" secondItem="xBg-iJ-1OF" secondAttribute="centerX" id="Qff-kp-vlN"/>
                             <constraint firstItem="4yS-BJ-XKz" firstAttribute="centerX" secondItem="xBg-iJ-1OF" secondAttribute="centerX" id="Spk-Xw-2cD"/>
                             <constraint firstItem="4yS-BJ-XKz" firstAttribute="top" secondItem="pmm-Py-zZG" secondAttribute="bottom" constant="30" id="UGN-m3-kCM"/>
                             <constraint firstItem="pmm-Py-zZG" firstAttribute="top" secondItem="BkG-0W-k7x" secondAttribute="bottom" constant="30" id="XKo-bw-Bxj"/>
                             <constraint firstItem="j1Y-WT-V1y" firstAttribute="trailing" secondItem="pmm-Py-zZG" secondAttribute="trailing" constant="25" id="Zex-zv-oBX"/>
+                            <constraint firstItem="6FG-Gd-b3M" firstAttribute="top" secondItem="aP5-6W-h5C" secondAttribute="bottom" constant="10" id="mx9-0r-3g4"/>
                             <constraint firstItem="BkG-0W-k7x" firstAttribute="centerX" secondItem="xBg-iJ-1OF" secondAttribute="centerX" id="vOr-xI-m82"/>
                             <constraint firstItem="4yS-BJ-XKz" firstAttribute="leading" secondItem="j1Y-WT-V1y" secondAttribute="leading" constant="25" id="zqM-ml-Rk4"/>
                         </constraints>
@@ -264,6 +274,7 @@
                         <outlet property="nicknameLabel" destination="rVC-zb-fgt" id="ztK-Ji-Elc"/>
                         <outlet property="submitButton" destination="5Mf-em-PF4" id="Hmr-AO-npJ"/>
                         <outlet property="themeSegmentedControll" destination="Ksk-OP-gOn" id="9vh-oR-CKk"/>
+                        <outlet property="versionLabel" destination="aP5-6W-h5C" id="zPD-v1-dBG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvs-h9-4AV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -400,7 +411,7 @@
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="t2Z-b0-gsx">
-                                <rect key="frame" x="40" y="30" width="334" height="32"/>
+                                <rect key="frame" x="40" y="30" width="334" height="29"/>
                                 <segments>
                                     <segment title="3x3"/>
                                     <segment title="2x2"/>
@@ -411,7 +422,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uZ1-Al-jfQ">
-                                <rect key="frame" x="30" y="86" width="354" height="538"/>
+                                <rect key="frame" x="30" y="83" width="354" height="541"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
