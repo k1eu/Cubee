@@ -91,15 +91,15 @@ class ViewController: UIViewController {
         if let chosen = defaults.string(forKey: "theme") {
             if chosen == "light" {
                 let xd = refreshAlgorithmButton.imageView?.image?.imageWithColor(color1: .black)
-                refreshAlgorithmButton.imageView?.image = xd
+                refreshAlgorithmButton.setImage(xd, for: .normal)
             }
             else {
                 let xd = refreshAlgorithmButton.imageView?.image?.imageWithColor(color1: .white)
-                refreshAlgorithmButton.imageView?.image = xd
+                refreshAlgorithmButton.setImage(xd, for: .normal)
             }
         }
     }
-    
+
     func setMenuButton() {
         menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 30, height: 30)
         menuBtn.setImage(UIImage(named: "menu"), for: .normal)
