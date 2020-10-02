@@ -44,7 +44,7 @@
 
 ## <p align="center"> Update : <i> Official Cubee Video Presentation </i> </p>
 
-<p align="center"> <img src="https://img.youtube.com/vi/lQ49DQKIyBM/0.jpg" href="https://www.youtube.com/watch?v=lQ49DQKIyBM" /> </p>
+<p align="center"> <a href="https://www.youtube.com/watch?v=lQ49DQKIyBM" > <img src="https://img.youtube.com/vi/lQ49DQKIyBM/0.jpg" /> </a> </p>
 <p align="center"> <i> click on image to redirect </i> </p>
 <br><br>
 <p> * Storing up to 20 results for each cube. Number of results can be changed in options in range 5-20 </p>
