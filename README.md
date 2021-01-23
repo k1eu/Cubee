@@ -1,4 +1,4 @@
-<p align="center" ><img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/iconpur_Obszar_roboczy_1.png?raw=true" width=200
+<p align="center" ><img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/Logo.png" width=200
  height=200 title="Cubee" alt="DefinitelyNotDevs"/></p>
  
 # <p align="center">Cubee</p>
@@ -50,4 +50,4 @@
 <p> * Storing up to 20 results for each cube. Number of results can be changed in options in range 5-20 </p>
 <br>
 
-<p> <img width=30 height=30 src="https://github.com/tkielarbb/Cubee/blob/fixes/Cubee/Assets.xcassets/account.imageset/account.png?raw=true"/><i> Developed by Definitely not Devs© </i>  </p>
+<p> <img width=30 height=30 src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/account.png"/><i> Developed by Definitely not Devs© </i>  </p>
