@@ -15,18 +15,18 @@
 ## <p align="center"> Features </p>
 
 <p align="center"> 
-<img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/3x3Light.png?raw=true" width=200 height=400 />
-<img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/2x2Light.png?raw=true" width=200 height=400 />
-<img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/PiraLight.png?raw=true" width=200 height=400 />
+<img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/3x3Light.png" width=200 height=400 />
+<img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/2x2Light.png" width=200 height=400 />
+<img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/PiraLight.png" width=200 height=400 />
 </p>
 
 ### <p align="center"> Supporting up to 3 cube types!</p>
 ### <p align="center"> Each type has its randomly generated sorting algorithms!</p>
 
 <p align="center"> 
-<img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/MenuLight.png?raw=true" width=200 height=400 />
-<img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/AccountLight.png?raw=true" width=200 height=400 />
-<img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/resultsLight.png?raw=true" width=200 height=400 />
+<img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/MenuLight.png" width=200 height=400 />
+<img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/AccountLight.png" width=200 height=400 />
+<img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/resultsLight.png" width=200 height=400 />
 </p>
 
 ### <p align="center"> Fully customizable profiles!</p>
@@ -36,10 +36,10 @@
 
 ##  <p align="center">Dark Mode</p>
 <p align="center"> 
-<img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/3x3Dark.png?raw=true" width=200 height=400 />
-<img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/MenuDark.png?raw=true" width=200 height=400 />
-<img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/AccountDark.png?raw=true" width=200 height=400 />
-<img src="https://github.com/tkielarbb/Tales-from-Village-Underworld/blob/master/first_game/Assets.xcassets/resultsDark.png?raw=true" width=200 height=400 />
+<img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/3x3Dark.png" width=200 height=400 />
+<img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/MenuDark.png" width=200 height=400 />
+<img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/AccountDark.png" width=200 height=400 />
+<img src="https://raw.githubusercontent.com/definitelynotdevs/MessedApp/master/Cubee-ios-old/resultsDark.png" width=200 height=400 />
 </p>
 
 ## <p align="center"> Update : <i> Official Cubee Video Presentation </i> </p>
